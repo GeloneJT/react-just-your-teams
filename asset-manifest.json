@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-just-your-teams/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/react-just-your-teams/static/js/main.c88a20b2.chunk.js",
+    "main.js.map": "/react-just-your-teams/static/js/main.c88a20b2.chunk.js.map",
+    "runtime-main.js": "/react-just-your-teams/static/js/runtime-main.2e5c2496.js",
+    "runtime-main.js.map": "/react-just-your-teams/static/js/runtime-main.2e5c2496.js.map",
+    "static/js/2.a2b27116.chunk.js": "/react-just-your-teams/static/js/2.a2b27116.chunk.js",
+    "static/js/2.a2b27116.chunk.js.map": "/react-just-your-teams/static/js/2.a2b27116.chunk.js.map",
+    "static/js/3.d92a4508.chunk.js": "/react-just-your-teams/static/js/3.d92a4508.chunk.js",
+    "static/js/3.d92a4508.chunk.js.map": "/react-just-your-teams/static/js/3.d92a4508.chunk.js.map",
+    "index.html": "/react-just-your-teams/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/react-just-your-teams/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.a2b27116.chunk.js.LICENSE.txt": "/react-just-your-teams/static/js/2.a2b27116.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/react-just-your-teams/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2e5c2496.js",
+    "static/js/2.a2b27116.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.c88a20b2.chunk.js"
+  ]
+}
