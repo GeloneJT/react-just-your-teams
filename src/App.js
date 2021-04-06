@@ -44,7 +44,7 @@ class App extends React.Component {
                 className="showcase"
                 muted
                 loop
-                autoplay
+                autoPlay
               ><source src={bg} type="video/mp4" />
               </video>
             </div>
