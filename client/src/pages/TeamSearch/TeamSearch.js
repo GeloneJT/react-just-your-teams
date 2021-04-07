@@ -8,15 +8,15 @@ class TeamSearch extends React.Component {
       <div>
         <section>
           <div>
-            <nav class="top-bar topbar-responsive">
-              <div id="topbar-responsive" class="topbar-responsive-links">
-                <div class="top-bar-right">
-                  <ul class="menu simple vertical medium-horizontal">
+            <nav className="top-bar topbar-responsive">
+              <div id="topbar-responsive" className="topbar-responsive-links">
+                <div className="top-bar-right">
+                  <ul className="menu simple vertical medium-horizontal">
                     <li>
                       <button
                         id="userpage"
                         type="button"
-                        class="button hollow topbar-responsive-button"
+                        className="button hollow topbar-responsive-button"
                       >
                         Home
                       </button>
@@ -25,7 +25,7 @@ class TeamSearch extends React.Component {
                       <button
                         id="team-search"
                         type="button"
-                        class="button hollow topbar-responsive-button"
+                        className="button hollow topbar-responsive-button"
                       >
                         Update Profile
                       </button>
@@ -34,7 +34,7 @@ class TeamSearch extends React.Component {
                       <button
                         id="logout-link"
                         type="button"
-                        class="button hollow topbar-responsive-button"
+                        className="button hollow topbar-responsive-button"
                       >
                         Logout
                       </button>
@@ -47,14 +47,14 @@ class TeamSearch extends React.Component {
         </section>
         <br />
         <section>
-          <div class="grid-container">
-            <div class="grid-x margin-x align-center">
-              <div class="cell medium-6">
-                <div class="translucent-form-overlay">
+          <div className="grid-container">
+            <div className="grid-x margin-x align-center">
+              <div className="cell medium-6">
+                <div className="translucent-form-overlay">
                   <form id="sign-up-form">
                     <h3>Search for Teams</h3>
-                    <div class="row columns"></div>
-                    <div class="row columns">
+                    <div className="row columns"></div>
+                    <div className="row columns">
                       <label>
                         Sport
                         <select id="sportinput" name="status" type="text">
@@ -62,7 +62,7 @@ class TeamSearch extends React.Component {
                         </select>
                       </label>
                     </div>
-                    <div class="row columns">
+                    <div className="row columns">
                       <label>
                         League
                         <select id="leagueinput" name="status" type="text">
@@ -70,7 +70,7 @@ class TeamSearch extends React.Component {
                         </select>
                       </label>
                     </div>
-                    <div class="row columns">
+                    <div className="row columns">
                       <label>
                         Teams
                         <select id="teamsinput" name="status" type="text">
@@ -117,15 +117,15 @@ class TeamSearch extends React.Component {
                         </select>
                       </label>
                     </div>
-                    <button class="primary button expanded">Search</button>
+                    <button className="primary button expanded">Search</button>
                   </form>
                 </div>
               </div>
-              <div class="cell medium-6">
-                <div class="status-update-input-box">
+              <div className="cell medium-6">
+                <div className="status-update-input-box">
                   <form id="about-me-button">
-                    <div class="row input-box-container">
-                      <div class="columns">
+                    <div className="row input-box-container">
+                      <div className="columns">
                         <label>
                           {/* <!-- Add a Label here to give this input box a heading --> */}
                           <textarea
@@ -136,27 +136,27 @@ class TeamSearch extends React.Component {
                         </label>
                       </div>
                     </div>
-                    <div class="row medium-collapse user-action-container">
-                      <div class="small-12 medium-7 columns">
-                        <div class="user-action-box">
-                          <div class="action-area">
+                    <div className="row medium-collapse user-action-container">
+                      <div className="small-12 medium-7 columns">
+                        <div className="user-action-box">
+                          <div className="action-area">
                             <a
                               href="#"
-                              class="action-anchor has-tip bottom"
+                              className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
                               tabindex="2"
                               title="Upload a Photo"
                             >
-                              <i class="fa fa-picture-o" aria-hidden="true"></i>
-                              <span class="show-for-sr">Upload a Photo</span>
+                              <i className="fa fa-picture-o" aria-hidden="true"></i>
+                              <span className="show-for-sr">Upload a Photo</span>
                             </a>
                           </div>
-                          <div class="action-area">
+                          <div className="action-area">
                             <a
                               href="#"
-                              class="action-anchor has-tip bottom"
+                              className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
@@ -164,16 +164,16 @@ class TeamSearch extends React.Component {
                               title="Upload a Video"
                             >
                               <i
-                                class="fa fa-video-camera"
+                                className="fa fa-video-camera"
                                 aria-hidden="true"
                               ></i>
-                              <span class="show-for-sr">Upload a Video</span>
+                              <span className="show-for-sr">Upload a Video</span>
                             </a>
                           </div>
-                          <div class="action-area">
+                          <div className="action-area">
                             <a
                               href="#"
-                              class="action-anchor has-tip bottom"
+                              className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
@@ -181,44 +181,44 @@ class TeamSearch extends React.Component {
                               title="Check in"
                             >
                               <i
-                                class="fa fa-map-marker"
+                                className="fa fa-map-marker"
                                 aria-hidden="true"
                               ></i>
-                              <span class="show-for-sr">Check in</span>
+                              <span className="show-for-sr">Check in</span>
                             </a>
                           </div>
-                          <div class="action-area">
+                          <div className="action-area">
                             <a
                               href="#"
-                              class="action-anchor has-tip bottom"
+                              className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
                               tabindex="2"
                               title="Add a Feeling"
                             >
-                              <i class="fa fa-smile-o" aria-hidden="true"></i>
-                              <span class="show-for-sr">Add a Feeling</span>
+                              <i className="fa fa-smile-o" aria-hidden="true"></i>
+                              <span className="show-for-sr">Add a Feeling</span>
                             </a>
                           </div>
-                          <div class="action-area">
+                          <div className="action-area">
                             <a
                               href="#"
-                              class="action-anchor has-tip bottom"
+                              className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
                               tabindex="2"
                               title="Tag a Friend"
                             >
-                              <i class="fa fa-tags" aria-hidden="true"></i>
-                              <span class="show-for-sr">Tag a Friend</span>
+                              <i className="fa fa-tags" aria-hidden="true"></i>
+                              <span className="show-for-sr">Tag a Friend</span>
                             </a>
                           </div>
                         </div>
                       </div>
-                      <div class="small-12 medium-5 columns">
-                        <button class="primary button expanded">Submit</button>
+                      <div className="small-12 medium-5 columns">
+                        <button className="primary button expanded">Submit</button>
                       </div>
                     </div>
                   </form>
@@ -230,32 +230,32 @@ class TeamSearch extends React.Component {
         <br />
         <section>
           <div>
-            <footer class="social-footer">
-              <div class="social-footer-left">
+            <footer className="social-footer">
+              <div className="social-footer-left">
                 <a href="#">
-                  <img class="logo" src="" />
+                  <img className="logo" src="" />
                 </a>
               </div>
-              <div class="social-footer-icons">
-                <ul class="menu simple">
+              <div className="social-footer-icons">
+                <ul className="menu simple">
                   <li>
                     <a href="https://www.facebook.com/">
-                      <i class="" aria-hidden="true"></i>
+                      <i className="" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.instagram.com/?hl=en">
-                      <i class="" aria-hidden="true"></i>
+                      <i className="" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="https://www.pinterest.com/">
-                      <i class="" aria-hidden="true"></i>
+                      <i className="" aria-hidden="true"></i>
                     </a>
                   </li>
                   <li>
                     <a href="https://twitter.com/?lang=en">
-                      <i class="" aria-hidden="true"></i>
+                      <i className="" aria-hidden="true"></i>
                     </a>
                   </li>
                 </ul>
