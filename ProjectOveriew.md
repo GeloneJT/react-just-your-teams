@@ -49,4 +49,4 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
 A bidrectional websocket that allows the client to communicate to the server and back.
 <br>
 <br>
-[How to build a chat with socket.io and react](https://medium.com/swlh/build-a-real-time-chat-app-with-react-hooks-and-socket-io-4859)
+[How to build a chat with socket.io and react](https://medium.com/swlh/build-a-real-time-chat-app-with-react-hooks-and-socket-io-4859c9afecb0)
