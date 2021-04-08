@@ -5,9 +5,25 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
 ## Schedule
 ​
 - Apr. 6th
-    * Make conceptual layout pages and chat room
-    * Make file structure
+    * Make conceptual layout pages and chat room 
+    * Make file structure  
     * Begin work on react app
+        * All completed
+- Apr. 7th
+    * Begin importing previous project
+    * Begin working on chat feature
+    * Be able to launch and produce each individual page
+    * Begin breaking down components
+    * Begin routing
+        * All completed
+- Apr. 8th
+    * Start and complete backend
+        * Models
+        * JYT DB routes
+        * API routes
+    * Begin working on login/logout
+    * Start code for chat feature
+    * Deploy to Heroku
 ​
 ## Requirements Check List
 -   Must use RectJS
@@ -50,3 +66,6 @@ A bidrectional websocket that allows the client to communicate to the server and
 <br>
 <br>
 [How to build a chat with socket.io and react](https://medium.com/swlh/build-a-real-time-chat-app-with-react-hooks-and-socket-io-4859c9afecb0)
+<br>
+<br>
+[bCrypt with mongoDb](https://www.thepolyglotdeveloper.com/2019/02/hash-password-data-mongodb-mongoose-bcrypt/)
