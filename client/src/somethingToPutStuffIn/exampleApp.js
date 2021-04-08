@@ -5,17 +5,18 @@ import io from 'socket.io-client';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import BottomBar from './BottomBar';
+//import BottomBar from './BottomBar';
 import './App.css';
 
-class App extends React.Component {
+class commentField extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       chat: [],
       content: '',
-      name: '',
+      name: '', //name should be logged in user
+      team:''
     };
   }
 
@@ -23,15 +24,22 @@ class App extends React.Component {
     this.socket = io(config[process.env.NODE_ENV].endpoint);
 
     // Load the last 10 messages in the window.
+    
     this.socket.on('init', (msg) => {
       let msgReversed = msg.reverse();
+      //TODO get appropriate team
+      //GET request to appropriate db
+      var rightTeam = "";
+      //filter by ones that have appropriate team
       this.setState((state) => ({
         chat: [...state.chat, ...msgReversed],
       }), this.scrollToBottom);
+
     });
 
     // Update the chat if a new message is broadcasted.
     this.socket.on('push', (msg) => {
+      //check if msg has appropriate team
       this.setState((state) => ({
         chat: [...state.chat, msg],
       }), this.scrollToBottom);
@@ -45,10 +53,11 @@ class App extends React.Component {
     });
   }
 
-  //
+  // not from input, get from API
   handleName(event) {
     this.setState({
       name: event.target.value,
+      team: event.target.value,
     });
   }
 
@@ -60,6 +69,7 @@ class App extends React.Component {
     this.socket.emit('message', {
       name: this.state.name,
       content: this.state.content,
+      team:''/*team name */,
     });
 
     this.setState((state) => {
@@ -68,6 +78,7 @@ class App extends React.Component {
         chat: [...state.chat, {
           name: state.name,
           content: state.content,
+          team:state.team
         }],
         content: '',
       };
@@ -82,7 +93,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="CommentField">
         <Paper id="chat" elevation={3}>
           {this.state.chat.map((el, index) => {
             return (
@@ -97,16 +108,20 @@ class App extends React.Component {
             );
           })}
         </Paper>
-        <BottomBar
+        
+      </div>
+    );
+  }
+};
+
+export default commentField;
+
+/*
+<BottomBar
           content={this.state.content}
           handleContent={this.handleContent.bind(this)}
           handleName={this.handleName.bind(this)}
           handleSubmit={this.handleSubmit.bind(this)}
           name={this.state.name}
         />
-      </div>
-    );
-  }
-};
-
-export default App;
+*/

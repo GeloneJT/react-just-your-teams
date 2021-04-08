@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
     });
 
     // Notify all other users about a new message.
-    socket.broadcast.emit('push', msg);
+    //socket.broadcast.emit('push', msg);
   });
 });
 /*

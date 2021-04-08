@@ -1,16 +1,7 @@
-const User = require('./User');
-const Selected = require('./selected');
 
-User.hasMany(Selected, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const userSchema = new Schema({
+    
 });
-
-Selected.belongsTo(User, {
-    foreignKey: 'user_id',
-});
-
-module.exports = {
-    User,
-    Selected,
-};
