@@ -7,46 +7,6 @@ class TeamSearch extends React.Component {
     return (
       <div>
         <section>
-          <div>
-            <nav className="top-bar topbar-responsive">
-              <div id="topbar-responsive" className="topbar-responsive-links">
-                <div className="top-bar-right">
-                  <ul className="menu simple vertical medium-horizontal">
-                    <li>
-                      <button
-                        id="userpage"
-                        type="button"
-                        className="button hollow topbar-responsive-button"
-                      >
-                        Home
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        id="team-search"
-                        type="button"
-                        className="button hollow topbar-responsive-button"
-                      >
-                        Update Profile
-                      </button>
-                    </li>
-                    <li>
-                      <button
-                        id="logout-link"
-                        type="button"
-                        className="button hollow topbar-responsive-button"
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </section>
-        <br />
-        <section>
           <div className="grid-container">
             <div className="grid-x margin-x align-center">
               <div className="cell medium-6">
