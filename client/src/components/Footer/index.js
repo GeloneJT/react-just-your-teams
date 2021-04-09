@@ -16,7 +16,6 @@ function Footer() {
         </section>
       </div>
     );
-
 }
 
 export default Footer;
