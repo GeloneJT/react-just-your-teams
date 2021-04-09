@@ -3,33 +3,48 @@ import API from "../../utils/API";
 import AboutMe from "../../components/AboutMe";
 import ScheduleResults from "../../components/ScheduleResults";
 
+
 class UserPage extends Component {
   state = {
-    results: []
+    schedData: [],
+    scoreData: [],
   };
 
   componentDidMount() {
-    this.searchTeam('48');
+    this.searchSchedule("48");
+    this.searchScore("Everton");
   }
 
-  searchTeam = (query) => {
-    console.log("SEARCHTEAM: " + query);
+  searchSchedule = (query) => {
+    console.log("SEARCHSCHEDULE: " + query);
     API.schedule(query)
-      .then((res) => 
-      {
-        console.log(res) 
-        this.setState({ results: res.data.schedule })
-      }
-      )
+      .then((res) => {
+        console.log(res);
+        this.setState({ schedData: res.data.schedule });
+      })
       .catch((err) => console.log(err));
   };
-  
+
+  searchScore = (team) => {
+    console.log("SEARCHSCORE: " + team);
+    API.score(team)
+      .then((res) => {
+        console.log(res);
+        this.setState({ scoreData: res.data});
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
-    console.log("RENDER: " + this.state.results.schedule)
+    console.log("RENDER: " + this.state.schedData.schedule);
     return (
       <div>
-        <AboutMe /> 
-        <ScheduleResults schedule={this.state.results} />
+        <div class="grid-container">
+          <div className="grid-container">
+            <AboutMe />
+            <ScheduleResults schedule={this.state.schedData} />
+          </div>
+        </div>
       </div>
     );
   }

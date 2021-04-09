@@ -1,36 +1,38 @@
 import axios from "axios";
 
-
 //hardcoded place holders for sportsradar calls
-const BASEURL =
-  "https://cors-anywhere.herokuapp.com/https://api.sportradar.us/soccer-t3/eu/en/teams/sr:competitor:";
+const BASEURL = process.env.BASEURL;
 
-// const teamId = 48;
+const SCHEDULECALL =
+  process.env.SCHEDULECALL + process.env.APIKEY + process.env.LASTFIVE;
 
-const scheduleUrl = "/schedule.json?api_key=";
-
-const APIKEY = "tjvrmmgbecfp8t6k4n7njuys";
-
-const lastFive = "&amp;start=0&amp;limit=5";
-
-const scheduleCall = scheduleUrl + APIKEY + lastFive;
+const SCORECALL =
+  process.env.SCORECALL + process.env.APIKEY + process.env.LASTFIVE;
 
 export default {
-    schedule: function(query) {
-        console.log("SCHEDULE SEARCH: " + query)
-        return axios.get(BASEURL + query + scheduleCall);
-    },
-    
+
+  schedule: function (query) {
+    console.log("SCHEDULE SEARCH: " + query);
+    return axios.get(BASEURL + query + SCHEDULECALL);
+  },
+  score: function (team) {
+    console.log("SCHEDULE SEARCH: " + team);
+    return axios.get(BASEURL + team + SCORECALL);
+  },
+
+  getUsers: function () {
+    return axios.get("/api/user");
+  },
+
+  getUser: function (id) {
+    return axios.get("/api/user/" + id);
+  },
+
+  deleteUser: function (id) {
+    return axios.delete("/api/user/" + id);
+  },
+
+  saveUser: function (userData) {
+    return axios.post("/api/user", userData);
+  },
 };
-//above needs to be applied as props.schedule
-
-// const resultUrl = "/results.json?api_key=";
-
-// const teamName = "Everton";
-
-// export default {
-//     results: function() {
-//         return axios.get(BASEURL + teamName + resultUrl + APIKEY);
-//     }
-// };
-//above needs to be applied as props.result
