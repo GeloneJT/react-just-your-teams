@@ -5,6 +5,7 @@ import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import TeamSearch from "./pages/TeamSearch/TeamSearch";
 import UserPage from "./pages/UserPage/UserPage";
 import Nav from "./components/Nav"
+import Footer from "./components/Footer"
 
 
 
@@ -15,9 +16,10 @@ class App extends React.Component {
         <div>
           <Nav />
           <Route exact path="/" component={Landing} />
-          <Route exact path="/teamsearch" component={TeamSearch} />
           <Route exact path="/createaccount" component={CreateAccount} />
           <Route exact path="/userpage" component={UserPage} />
+          <Route exact path="/teamsearch" component={TeamSearch} />
+          <Footer />
         </div>
       </Router>
     );
