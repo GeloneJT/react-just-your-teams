@@ -1,8 +1,19 @@
 import React from "react";
 import "./Landing.css";
 import bg from "../../img/SoccerHeader.mp4";
+import LoginForm from "../../components/LoginForm";
+
 
 class Landing extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+    };
+  }
+  
   render() {
     return (
       <div className="Landing">
