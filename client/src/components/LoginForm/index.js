@@ -1,30 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
+
 function LoginForm() {
-  state = {
-    username: "",
-    password: "",
-  };
+  const location = useLocation();
 
-  handleInputChange = (event) => {
-    const { username, value } = event.target;
+  const [user, setUser] = useState({ 
+    username: "", 
+    password: "" 
+  });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
-    this.setState({
-      [username]: value,
+    setUser({
+      ...user,
+      [name]: value,
     });
   };
 
-  handleFormSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    this.setState({
+    setUser({
+      ...user,
       username: "",
       password: "",
     });
   };
-  const location = useLocation();
 
   return (
     <form className="log-in-form">
@@ -32,25 +35,25 @@ function LoginForm() {
       <label>
         Username
         <input
-        value={this.state.username}
+          value={user.username}
           type="text"
           name="username"
-          onChange={this.handleInputChange}
+          onChange={handleInputChange}
           placeholder="Enter Username"
         />
       </label>
       <label>
         Password
         <input
-          value={this.state.password}
+          value={user.password}
           type="password"
           name="password"
-          onChange={this.state.password}
+          onChange={handleInputChange}
           placeholder="Enter Password"
         />
       </label>
       <p>
-        <input type="submit" className="button expanded" value="Log in"></input>
+        <input onClick={handleFormSubmit} type="submit" className="button expanded" value="Log in"></input>
       </p>
       <p className="text-center">
         <Link
