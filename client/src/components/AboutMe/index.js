@@ -3,7 +3,6 @@ import "./style.css";
 
 function AboutMe() {
   return (
-    <div className="grid-container">
       <div className="grid-x grid-margin-x">
         <div className="cell medium-auto">
           <div className="card profile-card-action-icons">
@@ -27,7 +26,6 @@ function AboutMe() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -1,9 +1,12 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController.js");
 
+// Endpoints: /api/user
 router.route("/")
-    .post(userController.create);
+    .post(userController.create)
+    .get(userController.findAll);
 
+// Endpoints: /api/user/:id
 router.route("/:id")
     .get(userController.findById)
     .put(userController.update);
