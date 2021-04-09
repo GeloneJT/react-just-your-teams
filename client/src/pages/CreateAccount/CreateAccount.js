@@ -2,6 +2,13 @@ import React from "react";
 import "./CreateAccount.css";
 
 class Create extends React.Component {
+
+  state = {
+    email: "",
+    username: "",
+    Password: "",
+  };
+
   render() {
     return (
       <div>
