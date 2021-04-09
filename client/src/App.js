@@ -16,7 +16,8 @@ class App extends React.Component {
           <Nav />
           <Route exact path="/" component={Landing} />
           <Route exact path="/teamsearch" component={TeamSearch} />
-          <Route exact path="/createaccount" component={TeamSearch} />
+          <Route exact path="/createaccount" component={CreateAccount} />
+          <Route exact path="/userpage" component={UserPage} />
         </div>
       </Router>
     );

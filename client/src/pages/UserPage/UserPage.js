@@ -1,8 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
+import API from "../../utils/API";
 import "./UserPage.css";
 
 
 class UserPage extends React.Component {
+  state = {
+    results: []
+  };
+
+  componentDidMount() {
+    this.searchTeam=({"Everton": 48});
+  };
+
+  searchTeam = query => {
+    API.schedule(query)
+    .then(rest => this.setState({ results: rest.data.data}))
+    .catch(err => console.log(err));
+  }
     render() {
         return (
           <div>
@@ -36,6 +50,7 @@ class UserPage extends React.Component {
                   </div>
                   <div className="cell medium-auto" id="futureSchedule">
                     Team Schedule
+                    {this.state.results}
                   </div>
                   <div className="cell medium-auto" id="pastResults">
                     Most Recent games
