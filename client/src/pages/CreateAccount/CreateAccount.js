@@ -5,21 +5,6 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        <section>
-          <div>
-            <nav className="top-bar topbar-responsive">
-              <div id="topbar-responsive" className="topbar-responsive-links">
-                <div className="top-bar-right">
-                  <ul className="menu simple vertical medium-horizontal">
-                    <li>
-                      <a href="landing.html">Home</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </section>
         <br />
         <section>
           <div className="grid-container">
