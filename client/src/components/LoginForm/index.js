@@ -3,21 +3,49 @@ import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 function LoginForm() {
+  state = {
+    username: "",
+    password: "",
+  };
+
+  handleInputChange = (event) => {
+    const { username, value } = event.target;
+
+    this.setState({
+      [username]: value,
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      username: "",
+      password: "",
+    });
+  };
   const location = useLocation();
 
   return (
-    <form className="log-in-form" method="POST">
+    <form className="log-in-form">
       <h4 className="text-center">Log in with your username</h4>
       <label>
         Username
-        <input type="text" name="username" placeholder="Enter Username" />
+        <input
+        value={this.state.username}
+          type="text"
+          name="username"
+          onChange={this.handleInputChange}
+          placeholder="Enter Username"
+        />
       </label>
       <label>
         Password
         <input
-          id="password-input-login"
+          value={this.state.password}
           type="password"
           name="password"
+          onChange={this.state.password}
           placeholder="Enter Password"
         />
       </label>

@@ -6,14 +6,6 @@ import LoginForm from "../../components/LoginForm";
 
 class Landing extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-    };
-  }
-  
   render() {
     return (
       <div className="Landing">
@@ -25,7 +17,6 @@ class Landing extends React.Component {
                 <source src={bg} type="video/mp4" />
               </video>
             </div>
-            <div className="toggle"></div>
           </div>
         </div>
       </div>
