@@ -5,8 +5,6 @@ import ScheduleResults from "../../components/ScheduleResults";
 
 class UserPage extends Component {
   state = {
-    teamId: null,
-    team: "",
     results: []
   };
 
@@ -15,17 +13,24 @@ class UserPage extends Component {
   }
 
   searchTeam = (query) => {
+    console.log("SEARCHTEAM: " + query);
     API.schedule(query)
-      .then((res) => this.setState({ results: res.data.data }))
+      .then((res) => 
+      {
+        console.log(res) 
+        this.setState({ results: res.data.schedule })
+      }
+      )
       .catch((err) => console.log(err));
   };
-
+  
   render() {
+    console.log("RENDER: " + this.state.results.schedule)
     return (
-      <section>
+      <div>
         <AboutMe /> 
-        <ScheduleResults results={this.state.results} />
-      </section>
+        <ScheduleResults schedule={this.state.results} />
+      </div>
     );
   }
 }
