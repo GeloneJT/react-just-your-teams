@@ -3,28 +3,31 @@ import API from "../../utils/API";
 import AboutMe from "../../components/AboutMe";
 import ScheduleResults from "../../components/ScheduleResults";
 
-class UserPage extends React.Component {
+class UserPage extends Component {
   state = {
+    teamId: null,
+    team: "",
     results: []
   };
 
   componentDidMount() {
-    this.searchTeam=({"Everton": 48});
+    this.searchTeam('48');
+  }
+
+  searchTeam = (query) => {
+    API.schedule(query)
+      .then((res) => this.setState({ results: res.data.data }))
+      .catch((err) => console.log(err));
   };
 
-  searchTeam = query => {
-    API.schedule(query)
-    .then(rest => this.setState({ results: rest.data.data}))
-    .catch(err => console.log(err));
+  render() {
+    return (
+      <section>
+        <AboutMe /> 
+        <ScheduleResults results={this.state.results} />
+      </section>
+    );
   }
-    render() {
-        return (
-          <section>
-                  <AboutMe />
-                  <ScheduleResults />
-          </section>
-        );
-    }
 }
 
 export default UserPage;
