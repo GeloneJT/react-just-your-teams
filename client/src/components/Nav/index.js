@@ -20,7 +20,9 @@ function Nav() {
                   <Link
                     to="/userpage"
                     className={
-                      location.pathname === "/userpage" ? "nav-link active" : "nav-link"
+                      location.pathname === "/userpage"
+                        ? "nav-link active"
+                        : "nav-link"
                     }
                   >
                     Home
@@ -52,9 +54,11 @@ function Nav() {
                   className="button hollow topbar-responsive-button"
                 >
                   <Link
-                    to="/"
+                    to="/react-just-your-teams"
                     className={
-                      location.pathname === "/" ? "nav-link active" : "nav-link"
+                      location.pathname === "/landing"
+                        ? "nav-link active"
+                        : "nav-link"
                     }
                   >
                     {" "}

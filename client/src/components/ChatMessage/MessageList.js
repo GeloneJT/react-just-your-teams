@@ -15,8 +15,8 @@ class commentField extends React.Component {
     this.state = {
       chat: [],
       content: '',
-      name: '', //name should be logged in user
-      team:''
+      name: user, //name should be logged in user
+      team:usersteam, //their team
     };
   }
 
@@ -29,8 +29,9 @@ class commentField extends React.Component {
       let msgReversed = msg.reverse();
       //TODO get appropriate team
       //GET request to appropriate db
-      var rightTeam = "";
+      
       //filter by ones that have appropriate team
+      msgReversed.filter(word => word.team==this.state.team);
       this.setState((state) => ({
         chat: [...state.chat, ...msgReversed],
       }), this.scrollToBottom);
@@ -54,12 +55,12 @@ class commentField extends React.Component {
   }
 
   // not from input, get from API
-  handleName(event) {
+ /* handleName(event) {
     this.setState({
       name: event.target.value,
       team: event.target.value,
     });
-  }
+  }*/
 
   handleSubmit(event) {
     // Prevent the form to reload the current page.
@@ -69,7 +70,7 @@ class commentField extends React.Component {
     this.socket.emit('message', {
       name: this.state.name,
       content: this.state.content,
-      team:''/*team name */,
+      team:this.state.team,
     });
 
     this.setState((state) => {
@@ -86,10 +87,10 @@ class commentField extends React.Component {
   }
 
   // Always make sure the window is scrolled down to the last message.
-  scrollToBottom() {
+  /*scrollToBottom() {
     const chat = document.getElementById('chat');
     chat.scrollTop = chat.scrollHeight;
-  }
+  }*/
 
   render() {
     return (
@@ -99,7 +100,7 @@ class commentField extends React.Component {
             return (
               <div key={index}>
                 <Typography variant="caption" className="name">
-                  {el.name}
+                  {el.name+", "+el.team}
                 </Typography>
                 <Typography variant="body1" className="content">
                   {el.content}
