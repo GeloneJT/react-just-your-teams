@@ -43,7 +43,6 @@ class Create extends React.Component {
   render() {
     return (
       <div>
-        <br />
         <section>
           <div className="grid-container">
             <div className="grid-x grid-margin-x align-center" id="form-grid">
