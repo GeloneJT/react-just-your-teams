@@ -31,6 +31,7 @@ class Create extends React.Component {
     } else {
       alert(`Welcome ${this.state.username}`)
     }
+    console.log(this.state)
 
     this.setState({
       email: "",
@@ -82,7 +83,7 @@ class Create extends React.Component {
                         <i className="fa fa-key"></i>
                       </span>
 
-                      <input
+                      <input  
                         value={this.state.password}
                         name="password"
                         className="input-group-field"
@@ -161,7 +162,7 @@ class Create extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button className="button expanded">Submit</button>
+                  <button onCLick={this.handleFormSubmit} className="button expanded">Submit</button>
                 </form>
               </div>
             </div>
