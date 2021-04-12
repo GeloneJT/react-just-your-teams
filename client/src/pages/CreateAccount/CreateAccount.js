@@ -28,7 +28,9 @@ class Create extends React.Component {
       alert("Please fill out your email and username!")
     } else if (this.state.Password.length < 8) {
       alert(`Please choose a more secure password ${this.state.username}`)
-    } 
+    } else {
+      alert(`Welcome ${this.state.username}`)
+    }
   }
 
   render() {
