@@ -22,6 +22,15 @@ class Create extends React.Component {
     })
   };
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (!this.state.email || !this.state.username) {
+      alert("Please fill out your email and username!")
+    } else if (this.state.Password.length < 8) {
+      alert(`Please choose a more secure password ${this.state.username}`)
+    } 
+  }
+
   render() {
     return (
       <div>
