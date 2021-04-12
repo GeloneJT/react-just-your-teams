@@ -58,6 +58,7 @@ class Create extends React.Component {
                         value={this.state.email}
                         name="email"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="text"
                         placeholder="Email"
                       />
@@ -71,6 +72,7 @@ class Create extends React.Component {
                         value={this.state.username}
                         name="username"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="text"
                         placeholder="Username"
                       />
@@ -84,6 +86,7 @@ class Create extends React.Component {
                         value={this.state.password}
                         name="password"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="password"
                         placeholder="Password"
                       />
