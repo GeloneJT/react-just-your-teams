@@ -17,7 +17,6 @@ const APIKEY = "paste from .env";
 export default {
 
   schedule: function (query) {
-    
     return axios.get( `${CORS}${BASE}${query}${SUMMARY}${APIKEY}`);
   },
 
