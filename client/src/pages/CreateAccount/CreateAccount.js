@@ -12,7 +12,15 @@ class Create extends React.Component {
   handleInputChange = event => {
     let value = event.target.value;
     const name = event.target.name;
-  }
+
+    if (name === "password") {
+      value = value.substring(0,15);
+    }
+
+    this.setState({
+      [name]: value
+    })
+  };
 
   render() {
     return (
