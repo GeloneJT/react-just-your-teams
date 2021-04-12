@@ -10,7 +10,12 @@ function TeamSearchForm() {
           <option value="soccer">Soccer</option>
         </select>
       </label>
-      
+      <label>
+        League
+        <select id="league-input" name="status" type="text">
+          <option value="epl">English Premier League</option>
+        </select>
+      </label>
     </form>
   );
 }
