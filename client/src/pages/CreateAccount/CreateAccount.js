@@ -9,6 +9,11 @@ class Create extends React.Component {
     Password: "",
   };
 
+  handleInputChange = event => {
+    let value = event.target.value;
+    const name = event.target.name;
+  }
+
   render() {
     return (
       <div>
