@@ -81,6 +81,7 @@ class Create extends React.Component {
                       </span>
 
                       <input
+                        value={this.state.password}
                         id="password-input"
                         className="input-group-field"
                         type="password"
