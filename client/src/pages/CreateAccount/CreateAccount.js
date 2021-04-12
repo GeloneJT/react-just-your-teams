@@ -56,7 +56,7 @@ class Create extends React.Component {
                       </span>
                       <input
                         value={this.state.email}
-                        id="email-input"
+                        name="email"
                         className="input-group-field"
                         type="text"
                         placeholder="Email"
@@ -69,7 +69,7 @@ class Create extends React.Component {
 
                       <input
                         value={this.state.username}
-                        id="username-input"
+                        name="username"
                         className="input-group-field"
                         type="text"
                         placeholder="Username"
@@ -82,7 +82,7 @@ class Create extends React.Component {
 
                       <input
                         value={this.state.password}
-                        id="password-input"
+                        name="password"
                         className="input-group-field"
                         type="password"
                         placeholder="Password"
