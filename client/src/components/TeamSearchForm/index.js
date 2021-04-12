@@ -45,6 +45,7 @@ function TeamSearchForm() {
           </option>
         </select>
       </label>
+      <button className="button expanded">Submit</button>
     </form>
   );
 }
