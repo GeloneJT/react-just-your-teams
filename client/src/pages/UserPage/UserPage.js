@@ -39,7 +39,7 @@ class UserPage extends Component {
     console.log("RENDER: " + this.state.schedData.schedule);
     return (
       <div>
-        <div class="grid-container">
+        <div className="grid-container">
           <div className="grid-container">
             <AboutMe />
             <ScheduleResults schedule={this.state.schedData} />
