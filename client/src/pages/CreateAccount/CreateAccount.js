@@ -6,7 +6,7 @@ class Create extends React.Component {
   state = {
     email: "",
     username: "",
-    Password: "",
+    password: "",
   };
 
   handleInputChange = event => {
@@ -35,7 +35,7 @@ class Create extends React.Component {
     this.setState({
       email: "",
       username: "",
-      passsword: ""
+      password: ""
     })
   };
 
