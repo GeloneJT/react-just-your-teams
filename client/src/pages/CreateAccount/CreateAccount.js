@@ -55,6 +55,7 @@ class Create extends React.Component {
                         <i className="fa fa-envelope-o"></i>
                       </span>
                       <input
+                        value={this.state.email}
                         id="email-input"
                         className="input-group-field"
                         type="text"
