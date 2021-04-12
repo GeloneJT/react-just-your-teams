@@ -31,7 +31,14 @@ class Create extends React.Component {
     } else {
       alert(`Welcome ${this.state.username}`)
     }
-  }
+
+    this.setState({
+      email: "",
+      username: "",
+      passsword: ""
+    })
+  };
+
 
   render() {
     return (
