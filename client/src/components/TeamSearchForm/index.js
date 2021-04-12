@@ -49,3 +49,5 @@ function TeamSearchForm() {
     </form>
   );
 }
+
+export default TeamSearchForm;
