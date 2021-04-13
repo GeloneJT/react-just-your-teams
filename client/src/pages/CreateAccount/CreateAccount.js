@@ -26,7 +26,7 @@ class Create extends React.Component {
     event.preventDefault();
     if (!this.state.email || !this.state.username) {
       alert("Please fill out your email and username!")
-    } else if (this.state.Password.length < 8) {
+    } else if (this.state.password.length < 8) {
       alert(`Please choose a more secure password ${this.state.username}`)
     } else {
       alert(`Welcome ${this.state.username}`)
@@ -162,7 +162,7 @@ class Create extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button onCLick={this.handleFormSubmit} className="button expanded">Submit</button>
+                  <button onClick={this.handleFormSubmit} className="button expanded">Submit</button>
                 </form>
               </div>
             </div>
