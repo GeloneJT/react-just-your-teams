@@ -101,7 +101,7 @@ class TeamSearch extends React.Component {
                         <div className="user-action-box">
                           <div className="action-area">
                             <a
-                              href="#"
+                              href=""
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -115,7 +115,7 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href="#"
+                              href=""
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -132,7 +132,7 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href="#"
+                              href=""
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -149,7 +149,7 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href="#"
+                              href=""
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -163,7 +163,7 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href="#"
+                              href=""
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
