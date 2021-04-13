@@ -23,22 +23,26 @@ class Create extends React.Component {
     })
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     if (!this.state.email || !this.state.username) {
-      alert("Please fill out your email and username!")
+      alert("Please fill out your email and username!");
     } else if (this.state.password.length < 8) {
-      alert(`Please choose a more secure password ${this.state.username}`)
+      alert(`Please choose a more secure password ${this.state.username}`);
     } else {
-      alert(`Welcome ${this.state.username}`)
+      alert(`Welcome ${this.state.username}`); 
+      const newUser = {
+        user: this.state.username,
+        email: this.state.email,
+        password: this.state.password,
+        about_me: ""
+      }
+      submitUser = (newUser) => {
+        API.saveUser(newUser).catch((err) => console.log(err));
+      };
     }
-    console.log(this.state)
-
-    this.setState({
-      email: "",
-      username: "",
-      password: ""
-    })
+    
+    console.log(this.state);
   };
 
 
