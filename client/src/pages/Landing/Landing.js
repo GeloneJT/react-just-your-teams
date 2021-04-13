@@ -12,7 +12,7 @@ class Landing extends React.Component {
         <div className="showcase">
           <div className="grid-container">
             <div className="grid-x grid-margin-x align-center">
-              <LoginForm>{/* Handle form */}</LoginForm>
+              <LoginForm />
               <video className="showcase" muted loop autoPlay>
                 <source src={bg} type="video/mp4" />
               </video>
