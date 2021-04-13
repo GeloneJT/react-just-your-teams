@@ -10,9 +10,11 @@ class UserPage extends Component {
   };
 
   
+//need get router to get user info
+//need to style page
 
   componentDidMount() {
-    this.searchSchedule("48");
+    this.searchSchedule("48"); //search schedule needs to be equal to team value
   }
 
   searchSchedule = (query) => {
@@ -29,7 +31,7 @@ class UserPage extends Component {
     // console.log("RENDER: " + this.state.schedData);
     return (
       <div>
-        <div class="grid-container">
+        <div className="grid-container">
           <div className="grid-container">
             <AboutMe />
             <ScheduleResults 

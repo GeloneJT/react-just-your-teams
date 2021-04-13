@@ -1,47 +1,57 @@
 import React from "react";
+import API from "../../utils/API";
 import "./CreateAccount.css";
 
-class Create extends React.Component {
-
+class CreateAccount extends React.Component {
   state = {
     email: "",
     username: "",
     password: "",
   };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     let value = event.target.value;
     const name = event.target.name;
 
     if (name === "password") {
-      value = value.substring(0,15);
+      value = value.substring(0, 15);
     }
 
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     if (!this.state.email || !this.state.username) {
-      alert("Please fill out your email and username!")
-    } else if (this.state.Password.length < 8) {
-      alert(`Please choose a more secure password ${this.state.username}`)
+      alert("Please fill out your email and username!");
+    } else if (this.state.password.length < 8) {
+      alert(`Please choose a more secure password ${this.state.username}`);
     } else {
-      alert(`Welcome ${this.state.username}`)
-    }
-    console.log(this.state)
+      alert(`Welcome ${this.state.username}`); 
 
-    this.setState({
-      email: "",
-      username: "",
-      password: ""
-    })
+    }
+    
+    console.log(this.state);
   };
 
+   newUser = {
+    username: this.state.username,
+    email: this.state.email,
+    password: this.state.password,
+    about_me: ""
+  }
+
+     componentDidMount(){ 
+      this.submitUser(this.newUser);
+    }
+      submitUser = (newUser) => {
+        API.saveUser(newUser).catch((err) => console.log(err));
+      };
 
   render() {
+    console.log("CreateAccount")
     return (
       <div>
         <section>
@@ -83,7 +93,7 @@ class Create extends React.Component {
                         <i className="fa fa-key"></i>
                       </span>
 
-                      <input  
+                      <input
                         value={this.state.password}
                         name="password"
                         className="input-group-field"
@@ -162,7 +172,12 @@ class Create extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button onCLick={this.handleFormSubmit} className="button expanded">Submit</button>
+                  <button
+                    onClick={this.handleFormSubmit}
+                    className="button expanded"
+                  >
+                    Submit
+                  </button>
                 </form>
               </div>
             </div>
@@ -174,4 +189,4 @@ class Create extends React.Component {
   }
 }
 
-export default Create;
+export default CreateAccount;

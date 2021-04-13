@@ -9,7 +9,6 @@ const BASE =
 const SUMMARY = "/summaries.json?api_key=";
 
 const APIKEY = "paste from .env";
-
 //need to build a backend route schedule needs to return axios.get("api/user/:id");
 
 
@@ -33,6 +32,7 @@ export default {
   },
 
   saveUser: function (userData) {
+    console.log(userData)
     return axios.post("/api/user", userData);
   },
 };

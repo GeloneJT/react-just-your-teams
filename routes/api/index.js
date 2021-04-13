@@ -1,13 +1,10 @@
 const path = require("path");
 const router = require("express").Router();
 const userRoutes = require("./user");
-const sportRoutes = require("./sport");
+
 
 // user routes
 router.use("/user", userRoutes);
-
-// sport Routes
-router.use("/sport", sportRoutes);
 
 // For anything else, render the html page
 router.use(function (req, res) {
