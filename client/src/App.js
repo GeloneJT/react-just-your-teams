@@ -17,7 +17,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Nav />
-          <Route exact path="/react-just-your-teams" component={Landing} />
+          <Route exact path="/" component={Landing} />
           <Route exact path="/createaccount" component={CreateAccount} />
           <Route exact path="/userpage" component={UserPage} />
           <Route exact path="/teamsearch" component={TeamSearch} />
