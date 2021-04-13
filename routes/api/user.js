@@ -4,7 +4,7 @@ const userController = require("../../controllers/userController.js");
 // Endpoints: /api/user
 router.route("/")
     .post(userController.create)
-    .get(userController.findAll);
+    .get(userController.findOne);
 
 // Endpoints: /api/user/:id
 router.route("/:id")

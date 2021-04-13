@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink } from "react-router-dom";
-import CreateAccount from "../../pages/CreateAccount/CreateAccount";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
@@ -17,7 +16,11 @@ class LoginForm extends Component {
     this.setState({
       [name]: value,
     });
+
+     console.log(this.state);
   };
+
+ 
 
   loginUser = {
     email: this.state.email,
@@ -26,9 +29,13 @@ class LoginForm extends Component {
   componentDidMount() {
     this.login(this.loginUser);
   }
+
+  //no idea. have tried API.getUser and everything
   login = (loginUser) => {
-    API.getUser(loginUser)
-      .then((res) => {})
+    API.getUsers(loginUser)
+      .then((res) => {
+        
+      })
       .catch((err) => console.log(err), alert("Inccorrect Email or Password"));
   };
 
@@ -58,7 +65,7 @@ class LoginForm extends Component {
           />
         </label>
         <p>
-          <NavLink to="/userpage" exact>
+          <NavLink to="/userpage/:id" exact>
             <input
               onClick={this.login}
               type="submit"

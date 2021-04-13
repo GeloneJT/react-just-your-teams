@@ -1,10 +1,8 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 function Nav() {
-
-    const location = useLocation();
 
     return (
       <nav className="top-bar topbar-responsive">

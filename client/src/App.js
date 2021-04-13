@@ -23,7 +23,7 @@ class App extends React.Component {
             <Route exact path = "/createaccount">
               <CreateAccount />
             </Route>
-            <Router exact path = "/userpage">
+            <Router exact path = "/userpage/:id">
               <UserPage />
             </Router>
           </Switch>
