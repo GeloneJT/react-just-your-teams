@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import Landing from "./pages/Landing/Landing";
-// import CreateAccount from "./pages/CreateAccount/CreateAccount";
-// import TeamSearch from "./pages/TeamSearch/TeamSearch";
+import CreateAccount from "./pages/CreateAccount/CreateAccount";
+import TeamSearch from "./pages/TeamSearch/TeamSearch";
 import UserPage from "./pages/UserPage/UserPage";
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
