@@ -1,6 +1,6 @@
 import React from "react";
 import "./CreateAccount.css";
-import "../../utils/API"
+import API from "../../utils/API"
 
 class Create extends React.Component {
 
