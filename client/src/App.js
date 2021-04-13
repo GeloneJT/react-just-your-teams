@@ -6,6 +6,10 @@ import TeamSearch from "./pages/TeamSearch/TeamSearch";
 import UserPage from "./pages/UserPage/UserPage";
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
+import dotenv from "dotenv";
+
+dotenv.config();
+
 
 class App extends React.Component {
   render() {

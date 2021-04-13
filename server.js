@@ -1,5 +1,4 @@
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -16,9 +15,11 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/jytDB"
-);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", 
+  {
+    useNewUrlParser: true,
+  });
 
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

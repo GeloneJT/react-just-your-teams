@@ -1,28 +1,59 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./style.css";
+
 
 function LoginForm() {
   const location = useLocation();
 
+  const [user, setUser] = useState({ 
+    username: "", 
+    password: "" 
+  });
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setUser({
+      ...user,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    setUser({
+      ...user,
+      username: "",
+      password: "",
+    });
+  };
+
   return (
-    <form className="log-in-form" method="POST">
+    <form className="log-in-form">
       <h4 className="text-center">Log in with your username</h4>
       <label>
         Username
-        <input type="text" name="username" placeholder="Enter Username" />
+        <input
+          value={user.username}
+          type="text"
+          name="username"
+          onChange={handleInputChange}
+          placeholder="Enter Username"
+        />
       </label>
       <label>
         Password
         <input
-          id="password-input-login"
+          value={user.password}
           type="password"
           name="password"
+          onChange={handleInputChange}
           placeholder="Enter Password"
         />
       </label>
       <p>
-        <input type="submit" className="button expanded" value="Log in"></input>
+        <input onClick={handleFormSubmit} type="submit" className="button expanded" value="Log in"></input>
       </p>
       <p className="text-center">
         <Link

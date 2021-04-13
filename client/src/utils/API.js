@@ -1,36 +1,39 @@
 import axios from "axios";
 
-
 //hardcoded place holders for sportsradar calls
-const BASEURL =
-  "https://cors-anywhere.herokuapp.com/https://api.sportradar.us/soccer-t3/eu/en/teams/sr:competitor:";
+const CORS = "https://cors-anywhere.herokuapp.com/";
 
-// const teamId = 48;
+const BASE =
+  "https://api.sportradar.us/soccer/trial/v4/en/competitors/sr:competitor:";
 
-const scheduleUrl = "/schedule.json?api_key=";
+const SUMMARY = "/summaries.json?api_key=";
 
-const APIKEY = "tjvrmmgbecfp8t6k4n7njuys";
+const APIKEY = "paste from .env";
 
-const lastFive = "&amp;start=0&amp;limit=5";
+//need to build a backend route schedule needs to return axios.get("api/user/:id");
 
-const scheduleCall = scheduleUrl + APIKEY + lastFive;
+
 
 export default {
-    schedule: function(query) {
-        console.log("SCHEDULE SEARCH: " + query)
-        return axios.get(BASEURL + query + scheduleCall);
-    },
+
+  schedule: function (query) {
     
+    return axios.get( `${CORS}${BASE}${query}${SUMMARY}${APIKEY}`);
+  },
+
+  getUsers: function () {
+    return axios.get("/api/user");
+  },
+
+  getUser: function (id) {
+    return axios.get("/api/user/" + id);
+  },
+
+  deleteUser: function (id) {
+    return axios.delete("/api/user/" + id);
+  },
+
+  saveUser: function (userData) {
+    return axios.post("/api/user", userData);
+  },
 };
-//above needs to be applied as props.schedule
-
-// const resultUrl = "/results.json?api_key=";
-
-// const teamName = "Everton";
-
-// export default {
-//     results: function() {
-//         return axios.get(BASEURL + teamName + resultUrl + APIKEY);
-//     }
-// };
-//above needs to be applied as props.result

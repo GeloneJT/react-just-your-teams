@@ -3,33 +3,41 @@ import API from "../../utils/API";
 import AboutMe from "../../components/AboutMe";
 import ScheduleResults from "../../components/ScheduleResults";
 
+
 class UserPage extends Component {
   state = {
-    results: []
+    matchData: [],
   };
+
+  
 
   componentDidMount() {
-    this.searchTeam('48');
+    this.searchSchedule("48");
   }
 
-  searchTeam = (query) => {
-    console.log("SEARCHTEAM: " + query);
+  searchSchedule = (query) => {
+    // console.log("SEARCHSCHEDULE: " + query);
     API.schedule(query)
-      .then((res) => 
-      {
-        console.log(res) 
-        this.setState({ results: res.data.schedule })
-      }
-      )
+      .then((res) => {
+        let summaries = res.data.summaries;
+        this.setState({ matchData: summaries })
+      })
       .catch((err) => console.log(err));
   };
-  
+
   render() {
-    console.log("RENDER: " + this.state.results.schedule)
+    // console.log("RENDER: " + this.state.schedData);
     return (
       <div>
-        <AboutMe /> 
-        <ScheduleResults schedule={this.state.results} />
+        <div className="grid-container">
+          <div className="grid-container">
+            <AboutMe />
+            <ScheduleResults 
+            matches={this.state.matchData}
+           
+             />
+          </div>
+        </div>
       </div>
     );
   }
