@@ -109,7 +109,12 @@ class commentField extends React.Component {
             );
           })}
         </Paper>
-        
+        <BottomBar
+          content={this.state.content}
+          handleContent={this.handleContent.bind(this)}
+          handleName={this.handleName.bind(this)}
+          handleSubmit={this.handleSubmit.bind(this)}
+        />
       </div>
     );
   }
