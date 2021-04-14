@@ -1,12 +1,14 @@
 import React from "react";
 import API from "../../utils/API";
 import "./CreateAccount.css";
-
 class CreateAccount extends React.Component {
   state = {
     email: "",
     username: "",
     password: "",
+    sport: "soccer",
+    league: "epl",
+    team: ""
   };
 
   handleInputChange = (event) => {
@@ -30,25 +32,30 @@ class CreateAccount extends React.Component {
       alert(`Please choose a more secure password ${this.state.username}`);
     } else {
       alert(`Welcome ${this.state.username}`); 
-
+      
+       API.saveUser(this.state)
+           .then((res) => {
+             res.status(200).send({ message: "user created" });
+           })
+           .catch((err) => console.log(err));
+       };
     }
+  
+
+
+  //     const submitUser = (newUser) => {
+  //        console.log(newUser);
+        
     
-    console.log(this.state);
-  };
+  //   console.log(this.state);
+  // };
 
-   newUser = {
-    username: this.state.username,
-    email: this.state.email,
-    password: this.state.password,
-    about_me: ""
-  }
 
-     componentDidMount(){ 
-      this.submitUser(this.newUser);
-    }
-      submitUser = (newUser) => {
-        API.saveUser(newUser).catch((err) => console.log(err));
-      };
+
+    //  componentDidMount(){ 
+    //   this.submitUser(this.newUser);
+    // }
+   
 
   render() {
     console.log("CreateAccount")
@@ -109,7 +116,13 @@ class CreateAccount extends React.Component {
                     <div className="row columns">
                       <label>
                         Sport
-                        <select id="sport-input" name="status" type="text">
+                        <select
+                          name="sport"
+                          value={this.state.sport}
+                          onChange={this.handleInputChange}
+                          id="sports-input"
+                          type="text"
+                        >
                           <option value="soccer">Soccer</option>
                         </select>
                       </label>
@@ -117,7 +130,13 @@ class CreateAccount extends React.Component {
                     <div className="row columns">
                       <label>
                         League
-                        <select id="league-input" name="status" type="text">
+                        <select
+                          name="league"
+                          value={this.state.league}
+                          onChange={this.handleInputChange}
+                          id="leagues-input"
+                          type="text"
+                        >
                           <option value="epl">English Premier League</option>
                         </select>
                       </label>
@@ -125,7 +144,13 @@ class CreateAccount extends React.Component {
                     <div className="row columns">
                       <label>
                         Teams
-                        <select id="teams-input" name="status" type="text">
+                        <select
+                          name="team"
+                          value={this.state.team}
+                          onChange={this.handleInputChange}
+                          id="teams-input"
+                          type="text"
+                        >
                           <option value="Arsenal FC">Arsenal FC</option>
                           <option value="Aston Villa FC">Aston Villa FC</option>
                           <option value="Brighton & Hove Albion FC">

@@ -26,15 +26,18 @@ class LoginForm extends Component {
     email: this.state.email,
     password: this.state.password,
   };
-  componentDidMount() {
+
+  //componentWillMount??
+  componentWillMount() {
     this.login(this.loginUser);
   }
 
   //no idea. have tried API.getUser and everything
+  //post route instead of get route?
   login = (loginUser) => {
     API.getUsers(loginUser)
-      .then((res) => {
-        
+      .then(() => {
+        alert("User Loggedin!");
       })
       .catch((err) => console.log(err), alert("Inccorrect Email or Password"));
   };

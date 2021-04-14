@@ -19,7 +19,7 @@ export default {
     return axios.get( `${CORS}${BASE}${query}${SUMMARY}${APIKEY}`);
   },
 
-  getUsers: function () {
+  getUsers: function (req, res) {
     return axios.get("/api/user");
   },
 
