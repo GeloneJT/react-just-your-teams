@@ -7,7 +7,7 @@ function LoginForm() {
   const location = useLocation();
 
   const [user, setUser] = useState({ 
-    username: "", 
+    email: "", 
     password: "" 
   });
   const handleInputChange = (event) => {
@@ -24,7 +24,7 @@ function LoginForm() {
 
     setUser({
       ...user,
-      username: "",
+      email: "",
       password: "",
     });
   };
@@ -33,13 +33,13 @@ function LoginForm() {
     <form className="log-in-form">
       <h4 className="text-center">Log in with your username</h4>
       <label>
-        Username
+        Email
         <input
-          value={user.username}
-          type="text"
-          name="username"
+          value={user.email}
+          type="email"
+          name="email"
           onChange={handleInputChange}
-          placeholder="Enter Username"
+          placeholder="Enter Email"
         />
       </label>
       <label>

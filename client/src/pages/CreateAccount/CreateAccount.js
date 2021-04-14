@@ -2,25 +2,48 @@ import React from "react";
 import "./CreateAccount.css";
 
 class Create extends React.Component {
+
+  state = {
+    email: "",
+    username: "",
+    password: "",
+  };
+
+  handleInputChange = event => {
+    let value = event.target.value;
+    const name = event.target.name;
+
+    if (name === "password") {
+      value = value.substring(0,15);
+    }
+
+    this.setState({
+      [name]: value
+    })
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (!this.state.email || !this.state.username) {
+      alert("Please fill out your email and username!")
+    } else if (this.state.password.length < 8) {
+      alert(`Please choose a more secure password ${this.state.username}`)
+    } else {
+      alert(`Welcome ${this.state.username}`)
+    }
+    console.log(this.state)
+
+    this.setState({
+      email: "",
+      username: "",
+      password: ""
+    })
+  };
+
+
   render() {
     return (
       <div>
-        <section>
-          <div>
-            <nav className="top-bar topbar-responsive">
-              <div id="topbar-responsive" className="topbar-responsive-links">
-                <div className="top-bar-right">
-                  <ul className="menu simple vertical medium-horizontal">
-                    <li>
-                      <a href="landing.html">Home</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-          </div>
-        </section>
-        <br />
         <section>
           <div className="grid-container">
             <div className="grid-x grid-margin-x align-center" id="form-grid">
@@ -33,8 +56,10 @@ class Create extends React.Component {
                         <i className="fa fa-envelope-o"></i>
                       </span>
                       <input
-                        id="email-input"
+                        value={this.state.email}
+                        name="email"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="text"
                         placeholder="Email"
                       />
@@ -45,8 +70,10 @@ class Create extends React.Component {
                       </span>
 
                       <input
-                        id="username-input"
+                        value={this.state.username}
+                        name="username"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="text"
                         placeholder="Username"
                       />
@@ -56,9 +83,11 @@ class Create extends React.Component {
                         <i className="fa fa-key"></i>
                       </span>
 
-                      <input
-                        id="password-input"
+                      <input  
+                        value={this.state.password}
+                        name="password"
                         className="input-group-field"
+                        onChange={this.handleInputChange}
                         type="password"
                         placeholder="Password"
                       />
@@ -133,7 +162,7 @@ class Create extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button className="button expanded">Submit</button>
+                  <button onClick={this.handleFormSubmit} className="button expanded">Submit</button>
                 </form>
               </div>
             </div>
