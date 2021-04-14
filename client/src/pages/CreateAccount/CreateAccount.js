@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import API from "../../utils/API";
 import "./CreateAccount.css";
-class CreateAccount extends React.Component {
+class CreateAccount extends Component {
   state = {
     email: "",
     username: "",
@@ -31,11 +32,11 @@ class CreateAccount extends React.Component {
     } else if (this.state.password.length < 8) {
       alert(`Please choose a more secure password ${this.state.username}`);
     } else {
-      alert(`Welcome ${this.state.username}`); 
+      // alert(`Welcome ${this.state.username}`); 
       
        API.saveUser(this.state)
-           .then((res) => {
-             res.status(200).send({ message: "user created" });
+           .then((user) => {
+             alert("user created");
            })
            .catch((err) => console.log(err));
        };
@@ -197,12 +198,20 @@ class CreateAccount extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button
-                    onClick={this.handleFormSubmit}
-                    className="button expanded"
-                  >
-                    Submit
-                  </button>
+                  <p>
+                    <NavLink to={{
+                      pathname: "/userpage/:id",
+                      props:this.newUser
+                      }}>
+                      {" "}
+                      <input
+                        onClick={this.handleFormSubmit}
+                        type="submit"
+                        className="button expanded"
+                        value="Submit"
+                      />
+                    </NavLink>
+                  </p>
                 </form>
               </div>
             </div>

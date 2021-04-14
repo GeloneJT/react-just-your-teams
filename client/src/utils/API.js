@@ -1,12 +1,6 @@
 import axios from "axios";
 
-//hardcoded place holders for sportsradar calls
-const CORS = "https://cors-anywhere.herokuapp.com/";
-
-
 //need to build a backend route schedule needs to return axios.get("api/user/:id");
-
-
 
 export default {
 

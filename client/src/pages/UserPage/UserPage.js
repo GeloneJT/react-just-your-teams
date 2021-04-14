@@ -4,22 +4,28 @@ import AboutMe from "../../components/AboutMe";
 import ScheduleResults from "../../components/ScheduleResults";
 
 
+
+
+
 class UserPage extends Component {
+
+  
+
   state = {
     matchData: [],
   };
 
+
+ 
   
 //need get router to get user info
 //need to style page
 
   componentDidMount() {
-    
-    this.searchSchedule("48"); //search schedule needs to be equal to team value
+    this.searchSchedule(); //search schedule needs to be equal to team value
   }
 
   searchSchedule = (query) => {
-    // console.log("SEARCHSCHEDULE: " + query);
     API.schedule(query)
       .then((res) => {
         let summaries = res.data.summaries;

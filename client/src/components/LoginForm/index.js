@@ -68,13 +68,13 @@ class LoginForm extends Component {
           />
         </label>
         <p>
-          <NavLink to="/userpage/:id" exact>
+          <NavLink to="/userpage/:id">
             <input
               onClick={this.login}
               type="submit"
               className="button expanded"
               value="Log in"
-            />
+              />
           </NavLink>
         </p>
         <p className="text-center">
