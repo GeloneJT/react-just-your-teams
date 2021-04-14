@@ -14,6 +14,7 @@ class UserPage extends Component {
 //need to style page
 
   componentDidMount() {
+    
     this.searchSchedule("48"); //search schedule needs to be equal to team value
   }
 
