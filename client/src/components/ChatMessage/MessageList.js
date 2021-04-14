@@ -112,7 +112,6 @@ class commentField extends React.Component {
         <BottomBar
           content={this.state.content}
           handleContent={this.handleContent.bind(this)}
-          handleName={this.handleName.bind(this)}
           handleSubmit={this.handleSubmit.bind(this)}
         />
       </div>
