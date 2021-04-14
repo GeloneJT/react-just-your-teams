@@ -5,6 +5,7 @@ import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import TeamSearch from "./pages/TeamSearch/TeamSearch";
 import UserPage from "./pages/UserPage/UserPage";
 import Nav from "./components/Nav"
+import ChatPage from "./pages/ChatPage/chatpage"
 import Footer from "./components/Footer"
 import dotenv from "dotenv";
 
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route exact path="/createaccount" component={CreateAccount} />
           <Route exact path="/userpage" component={UserPage} />
           <Route exact path="/teamsearch" component={TeamSearch} />
+          <Route exact path="/chatpage" component={ChatPage} />
           <Footer />
         </div>
       </Router>
