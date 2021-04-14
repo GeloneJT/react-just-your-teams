@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import InputBase from '@material-ui/core/InputBase';
 
 //import BottomBar from './BottomBar';
 import './App.css';
@@ -109,11 +110,11 @@ class commentField extends React.Component {
             );
           })}
         </Paper>
-        <BottomBar
-          content={this.state.content}
-          handleContent={this.handleContent.bind(this)}
-          handleSubmit={this.handleSubmit.bind(this)}
-        />
+        <InputBase
+              onChange={this.handleContent}
+              value={this.state.content}
+              placeholder="Type your message..."
+            />
       </div>
     );
   }
