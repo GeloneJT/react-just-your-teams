@@ -5,9 +5,6 @@ import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import UserPage from "./pages/UserPage/UserPage"
 import Nav from "./components/Nav"
 import Footer from "./components/Footer"
-import dotenv from "dotenv";
-
-dotenv.config();
 
 
 class App extends React.Component {
