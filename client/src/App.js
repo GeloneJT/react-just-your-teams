@@ -13,6 +13,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Nav />
+
           <Switch>
             <Route exact path = "/">
               <Landing />
@@ -24,6 +25,7 @@ class App extends React.Component {
               <UserPage />
             </Router>
           </Switch>
+
           <Footer />
         </div>
       </Router>

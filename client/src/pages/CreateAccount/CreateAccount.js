@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./CreateAccount.css";
+
 import CreateForm from "../../components/CreateForm";
 class CreateAccount extends Component {
 
@@ -10,8 +11,9 @@ class CreateAccount extends Component {
           <div className="grid-container">
             <div className="grid-x grid-margin-x align-center" id="form-grid">
               <div className="cell medium-6">
+
                 <CreateForm match={this.props.match}>
-                {/* */}</CreateForm>
+                
               </div>
             </div>
           </div>

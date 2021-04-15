@@ -101,12 +101,14 @@ class TeamSearch extends React.Component {
                         <div className="user-action-box">
                           <div className="action-area">
                             <a
+
                               href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
-                              tabindex="2"
+                              tabIndex="2"
                               title="Upload a Photo"
                             >
                               <i className="fa fa-picture-o" aria-hidden="true"></i>
@@ -114,13 +116,14 @@ class TeamSearch extends React.Component {
                             </a>
                           </div>
                           <div className="action-area">
-                            <a
+
                               href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
-                              tabindex="2"
+                              tabIndex="2"
                               title="Upload a Video"
                             >
                               <i
@@ -132,12 +135,14 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
+
                               href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
-                              tabindex="2"
+                              tabIndex="2"
                               title="Check in"
                             >
                               <i
@@ -149,12 +154,14 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
+
                               href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
-                              tabindex="2"
+                              tabIndex="2"
                               title="Add a Feeling"
                             >
                               <i className="fa fa-smile-o" aria-hidden="true"></i>
@@ -163,12 +170,14 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
+
                               href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
                               data-disable-hover="false"
-                              tabindex="2"
+                              tabIndex="2"
                               title="Tag a Friend"
                             >
                               <i className="fa fa-tags" aria-hidden="true"></i>
