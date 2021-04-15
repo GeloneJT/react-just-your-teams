@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import AboutMe from "../../components/AboutMe";
-import Schedule from "../../components/ScheduleResults";
+import Schedule from "../../components/Schedule";
 import Results from "../../components/Results"; 
 import { Grid, Cell } from "react-foundation";
 
@@ -43,14 +43,14 @@ class UserPage extends Component {
       <div>
         <div className="grid-container">
           <div className="grid-container">
-            <Grid className="display" isExpanded>
-              <Cell small={12} large={2}>
+            <Grid>
+              <Cell small={12} large={3}>
                 <AboutMe />
               </Cell>
-              <Cell small={12} large={5}>
+              <Cell small={12} large={4}>
                 <Schedule matches={this.state.matchData} />
               </Cell>
-              <Cell small={12} large={5}>
+              <Cell small={12} large={4}>
                 <Results matches={this.state.matchData} />
               </Cell>
             </Grid>
