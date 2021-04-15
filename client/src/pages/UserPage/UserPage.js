@@ -1,22 +1,34 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import AboutMe from "../../components/AboutMe";
-import ScheduleResults from "../../components/ScheduleResults";
+import Schedule from "../../components/Schedule";
+import Results from "../../components/Results"; 
+import { Grid, Cell } from "react-foundation";
+
+
+
 
 
 class UserPage extends Component {
-  state = {
-    matchData: [],
-  };
 
   
 
+  state = {
+    matchData: [],
+    team: ""
+  };
+
+
+ 
+  
+//need get router to get user info
+//need to style page
+
   componentDidMount() {
-    this.searchSchedule("48");
+    this.searchSchedule("48"); //search schedule needs to be equal to team value -> currently only hardcode working if hardcoded on backend
   }
 
   searchSchedule = (query) => {
-    // console.log("SEARCHSCHEDULE: " + query);
     API.schedule(query)
       .then((res) => {
         let summaries = res.data.summaries;
@@ -31,11 +43,17 @@ class UserPage extends Component {
       <div>
         <div className="grid-container">
           <div className="grid-container">
-            <AboutMe />
-            <ScheduleResults 
-            matches={this.state.matchData}
-           
-             />
+            <Grid>
+              <Cell small={12} large={3}>
+                <AboutMe />
+              </Cell>
+              <Cell small={12} large={4}>
+                <Schedule matches={this.state.matchData} />
+              </Cell>
+              <Cell small={12} large={4}>
+                <Results matches={this.state.matchData} />
+              </Cell>
+            </Grid>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     trim: true,
+    unique: true,
   },
   about_me: {
     type: String,

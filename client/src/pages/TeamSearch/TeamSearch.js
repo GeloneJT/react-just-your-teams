@@ -101,7 +101,9 @@ class TeamSearch extends React.Component {
                         <div className="user-action-box">
                           <div className="action-area">
                             <a
-                              href=""
+
+                              href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -114,8 +116,9 @@ class TeamSearch extends React.Component {
                             </a>
                           </div>
                           <div className="action-area">
-                            <a
-                              href=""
+
+                              href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -132,7 +135,9 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href=""
+
+                              href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -149,7 +154,9 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href=""
+
+                              href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -163,7 +170,9 @@ class TeamSearch extends React.Component {
                           </div>
                           <div className="action-area">
                             <a
-                              href=""
+
+                              href="/#"
+
                               className="action-anchor has-tip bottom"
                               data-tooltip
                               aria-haspopup="true"
@@ -192,7 +201,7 @@ class TeamSearch extends React.Component {
           <div>
             <footer className="social-footer">
               <div className="social-footer-left">
-                <a href="#">
+                <a href="/#">
                   <img className="logo" src="" />
                 </a>
               </div>
