@@ -12,12 +12,13 @@ module.exports = {
   getSummarries: function (req, res) {
     console.log(url)
     console.log("GET SUMMARIES: ", req.body);
-    axios.get(url)
-    .then(({data}) => { 
-      res.json(data) 
-    })
-    .catch(err => {
-      console.log(err)
-    });
+    axios
+      .get(`${BASE}${req.body}${SUMMARY}${APIKEY}`)
+      .then(({ data }) => {
+        res.json(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };

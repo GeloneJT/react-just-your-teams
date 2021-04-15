@@ -5,13 +5,13 @@ import LoginForm from "../../components/LoginForm";
 
 
 class Landing extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      password: "",
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     username: "",
+  //     password: "",
+  //   };
+  // }
 
   //need to API.saveUser => to login or may need to write a new function
   //import API from "../../utils/API"

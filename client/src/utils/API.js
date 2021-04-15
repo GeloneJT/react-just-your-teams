@@ -8,8 +8,9 @@ export default {
     return axios.get( "/api/sport", query);
   },
 
-  getUsers: function (req, res) {
-    return axios.get("/api/user");
+  getUsers: function (query) {
+    console.log(query)
+    return axios.get("/api/user", query);
   },
 
   getUser: function (id) {

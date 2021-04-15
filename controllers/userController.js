@@ -1,5 +1,6 @@
 const db = require("../models/index.js");
 
+//find one not receiving data from login
 module.exports = {
   findAll: function (req, res) {
       db.User.find({})
@@ -13,8 +14,8 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   findOne: function (req, res) {
-    console.log("Get: FINDONE")
-    db.User.findOne({email: req.body.email})
+    console.log("Get: FIND ONE")
+    db.User.find({email: req.params.email, password: req.params.password})
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
