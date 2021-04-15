@@ -1,10 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 
 function Nav() {
-
-    const location = useLocation();
 
     return (
       <nav className="top-bar topbar-responsive">
@@ -17,16 +15,12 @@ function Nav() {
                   type="button"
                   className="button hollow topbar-responsive-button"
                 >
-                  <Link
+                  <NavLink
                     to="/userpage"
-                    className={
-                      location.pathname === "/userpage"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
+                    exact
                   >
                     Home
-                  </Link>
+                  </NavLink>
                 </button>
               </li>
               <li>
@@ -35,16 +29,13 @@ function Nav() {
                   type="button"
                   className="button hollow topbar-responsive-button"
                 >
-                  <Link
+                  <NavLink
                     to="teamsearch"
-                    className={
-                      location.pathname === "/teamsearch"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
+                    exact
+                    
                   >
                     Update Profile
-                  </Link>
+                  </NavLink>
                 </button>
               </li>
               <li>
@@ -53,17 +44,13 @@ function Nav() {
                   type="button"
                   className="button hollow topbar-responsive-button"
                 >
-                  <Link
-                    to="/react-just-your-teams"
-                    className={
-                      location.pathname === "/landing"
-                        ? "nav-link active"
-                        : "nav-link"
-                    }
+                  <NavLink
+                    to="/"
+                    exact
                   >
                     {" "}
                     Logout{" "}
-                  </Link>
+                  </NavLink>
                 </button>
               </li>
             </ul>
