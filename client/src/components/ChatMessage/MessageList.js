@@ -110,11 +110,15 @@ class commentField extends React.Component {
             );
           })}
         </Paper>
-        <InputBase
+        
+
+        <form onSubmit={this.handleSubmit}>
+            <InputBase
               onChange={this.handleContent}
               value={this.state.content}
               placeholder="Type your message..."
             />
+          </form>
       </div>
     );
   }
