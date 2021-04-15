@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const passport = require("passport");
-const { session } = require("passport");
+const session  = require("express-session");
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
