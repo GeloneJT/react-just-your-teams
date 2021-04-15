@@ -1,27 +1,17 @@
 import axios from "axios";
 
-//hardcoded place holders for sportsradar calls
-const CORS = "https://cors-anywhere.herokuapp.com/";
-
-const BASE =
-  "https://api.sportradar.us/soccer/trial/v4/en/competitors/sr:competitor:";
-
-const SUMMARY = "/summaries.json?api_key=";
-
-const APIKEY = "paste from .env";
-
 //need to build a backend route schedule needs to return axios.get("api/user/:id");
-
-
 
 export default {
 
   schedule: function (query) {
-    return axios.get( `${CORS}${BASE}${query}${SUMMARY}${APIKEY}`);
+    console.log('SCHEDULE QUERY: ', query);
+    return axios.get( "/api/sport", query)
   },
 
-  getUsers: function () {
-    return axios.get("/api/user");
+  getUsers: function (query) {
+    console.log(query)
+    return axios.get("/api/user", query);
   },
 
   getUser: function (id) {
@@ -33,6 +23,7 @@ export default {
   },
 
   saveUser: function (userData) {
+    console.log(userData)
     return axios.post("/api/user", userData);
   },
 };
