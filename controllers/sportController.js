@@ -10,8 +10,7 @@ const APIKEY = process.env.API_KEY;
 const url = `${BASE}48${SUMMARY}${APIKEY}`
 module.exports = {
   getSummarries: function (req, res) {
-    console.log(url)
-    console.log("GET SUMMARIES: ", req.body);
+    console.dir("GET SUMMARIES: " + req.body);
     axios
       .get(`${BASE}${req.body}${SUMMARY}${APIKEY}`)
       .then(({ data }) => {

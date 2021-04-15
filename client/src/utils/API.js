@@ -5,7 +5,8 @@ import axios from "axios";
 export default {
 
   schedule: function (query) {
-    return axios.get( "/api/sport", query);
+    console.log('SCHEDULE QUERY: ', query);
+    return axios.get( "/api/sport", query)
   },
 
   getUsers: function (query) {

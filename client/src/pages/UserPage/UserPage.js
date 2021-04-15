@@ -13,6 +13,7 @@ class UserPage extends Component {
 
   state = {
     matchData: [],
+    team: ""
   };
 
 
