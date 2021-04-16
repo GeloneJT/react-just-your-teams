@@ -8,20 +8,20 @@
 
     "express": "^4.17.1",
     "foundation-sites": "^6.6.3",
-
     "html-to-react": "^1.4.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-foundation": "^0.9.7",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "socket.io": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeply": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
