@@ -48,6 +48,8 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Start styling
     * Integrate chat room
         * Dave and Mike will begin working on this with James
+
+** FOR JAMES AND DAVE -> .config in chatmessage, app.css in chatmessage, socket.io(http) in server.js
 ## Requirements Check List
 -   Must use RectJS
     * Will add a user interaction portion of site
