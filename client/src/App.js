@@ -10,15 +10,16 @@ import API from "./utils/API";
 
 
 class App extends React.Component {
-
-  // handleLogout = (event) => {
-  //   event.preventDefault();
-  //    API.getUser(req.data).then((user) => {
-  //     API.logout(user)
-  //     .then(() => {
-  //       alert(`Logged Out!`)
-  //     });
-  //   }
+  
+  handleLogout = (event) => {
+    event.preventDefault();
+    console.log("LOGGING OUT");
+      API.logout()
+      .then(() => {
+        localStorage.clear()
+        alert(`Logged Out!`)
+      });
+  }
 
   render() {
     return (

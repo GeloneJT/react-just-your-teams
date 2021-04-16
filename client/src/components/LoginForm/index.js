@@ -1,19 +1,17 @@
 
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
 class LoginForm extends Component {
-
-
-
   state = {
     email: "",
     password: "",
-    user: null
+    user: null,
+    loggedIn: false
   };
-
+  //using localstorage to access user info - need to exclude password
   handleInputChange = (event) => {
     let value = event.target.value;
     const name = event.target.name;
@@ -21,32 +19,33 @@ class LoginForm extends Component {
     this.setState({
       [name]: value,
     });
-      this.handleLogin = (event) => {
-        event.preventDefault();
-        API.login(this.state)
-          .then((req) => {
-            // console.log("REQUESTED USER: ", req);
-            API.getUser(req.data)
-            .then((user) => {
-              // console.log('INCOMING USER: ', user.data)
-              if (user) {
-                this.setState({ user: user.data });
-                alert(`User ${user.data.username} Loggedin!`);
-              }
-            });
-          })
-          .catch(
-            (err) => {
-              console.log(err)
-              if (err) {
-                alert(`Incorrect Email and/or Password`);
-              }
+    this.handleLogin = (event) => {
+      event.preventDefault();
+      API.login(this.state)
+        .then((req) => {
+          // console.log("REQUESTED USER: ", req);
+          API.getUser(req.data).then((user) => {
+            // console.log('INCOMING USER: ', user.data)
+            if (user) {
+              this.setState({ user: user.data, loggedIn:true });
+              localStorage.setItem("user", JSON.stringify(user.data));
+              alert(`User ${user.data.username} Loggedin!`);
             }
-          );
-      };
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          if (err) {
+            alert(`Incorrect Email and/or Password`);
+          }
+        });
+    };
   };
 
   render() {
+    if(this.state.loggedIn){
+      return (<Redirect to={`/userpage/${this.state.user._id}`}/>)
+    }
     return (
       <form className="log-in-form" method="POST">
         <h4 className="text-center">Log in with your Email</h4>
@@ -72,14 +71,14 @@ class LoginForm extends Component {
           />
         </label>
         <p>
-          <NavLink to="/userpage/:id">
+          {/* <NavLink to="/userpage/:id"> */}
             <input
               onClick={this.handleLogin}
               type="submit"
               className="button expanded"
               value="Log in"
-              />
-          </NavLink>
+            />
+          {/* </NavLink> */}
         </p>
         <p className="text-center">
           <NavLink to={`/createaccount`} exact>
@@ -88,7 +87,7 @@ class LoginForm extends Component {
         </p>
         {/* <Route exact path={`/createaccount`}/> */}
       </form>
-    );
+  );
   }
 }
 
