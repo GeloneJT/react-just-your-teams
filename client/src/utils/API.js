@@ -8,6 +8,9 @@ export default {
     console.log('SCHEDULE QUERY: ', q)
     return axios.get( "/api/sport", { params: { q: "competitor:" + q } });
   },
+  login: function(email) {
+    return axios.post("/api/login", email);
+  },
 
   getUsers: function (query) {
     console.log(query)

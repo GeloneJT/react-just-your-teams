@@ -29,7 +29,7 @@ class LoginForm extends Component {
   };
   
   login = (loginUser) => {
-    API.getUsers(loginUser)
+    API.login(loginUser)
       .then((res) => {
         alert(`User ${res.data.username} Loggedin!`);
       })
