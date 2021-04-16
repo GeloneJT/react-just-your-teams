@@ -4,7 +4,7 @@ import Landing from "./pages/Landing/Landing";
 import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import UserPage from "./pages/UserPage/UserPage"
 import Nav from "./components/Nav"
-import ChatPage from "./pages/ChatPage/chatpage"
+import ChatPage from "./pages/ChatPage/chatpage.js"
 import Footer from "./components/Footer"
 
 
