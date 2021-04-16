@@ -16,8 +16,8 @@ class commentField extends React.Component {
     this.state = {
       chat: [],
       content: '',
-      name: user, //name should be logged in user
-      team:usersteam, //their team
+      // name: user, //name should be logged in user
+      // team:usersteam, //their team
     };
   }
 

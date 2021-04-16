@@ -1,13 +1,17 @@
 
-import React, {useState} from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
 class LoginForm extends Component {
+
+
+
   state = {
     email: "",
     password: "",
+    user: null
   };
 
   handleInputChange = (event) => {
@@ -17,23 +21,29 @@ class LoginForm extends Component {
     this.setState({
       [name]: value,
     });
-
-     console.log(this.state);
-  };
-
- 
-
-  loginUser = {
-    email: this.state.email,
-    password: this.state.password,
-  };
-  
-  login = (loginUser) => {
-    API.getUsers(loginUser)
-      .then((res) => {
-        alert(`User ${res.data.username} Loggedin!`);
-      })
-      .catch((err) => console.log(err), alert("Inccorrect Email or Password"));
+      this.handleLogin = (event) => {
+        event.preventDefault();
+        API.login(this.state)
+          .then((req) => {
+            // console.log("REQUESTED USER: ", req);
+            API.getUser(req.data)
+            .then((user) => {
+              // console.log('INCOMING USER: ', user.data)
+              if (user) {
+                this.setState({ user: user.data });
+                alert(`User ${user.data.username} Loggedin!`);
+              }
+            });
+          })
+          .catch(
+            (err) => {
+              console.log(err)
+              if (err) {
+                alert(`Incorrect Email and/or Password`);
+              }
+            }
+          );
+      };
   };
 
   render() {
@@ -64,7 +74,7 @@ class LoginForm extends Component {
         <p>
           <NavLink to="/userpage/:id">
             <input
-              onClick={this.login}
+              onClick={this.handleLogin}
               type="submit"
               className="button expanded"
               value="Log in"

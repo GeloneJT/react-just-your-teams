@@ -46,8 +46,41 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Reach MVP
     * Deploy to Heroku
     * Start styling
-    * Integrate chat room
-        * Dave and Mike will begin working on this with James
+
+- Apr. 14th 
+    * Finish chat room code
+    * Start passport working
+    * Break create account into components
+    * Put third party API call on backend
+        * All done 
+
+- Apr. 15th
+    * Style style style
+    * Continue work on passport
+        * We are now at a stand still until able to login and out
+    
+- Apr. 16th/17th/18th
+    * Finish passport
+    * Begin integrating chatroom
+    * Fix createaccount link -> login may fix this?
+    * Begin work on presentation
+    * Style some more!
+    * Need to breakdown team-search and have put route update AboutMe section in userpage
+    * Userpage needs to link to chat
+    * Userpage needs to pass props to AboutMe
+    * Need to assign number value to team
+    * Connect User to Message model?
+
+** FOR JAMES AND DAVE -> .config in chatmessage, app.css in chatmessage, socket.io(http) in server.js
+
+** Passport notes -> our getUsers route is a get...needs to be a post
+    * Check with Jelani if he has made a route is trying to use an existing route
+    * Need API call on all pages to ensure we can find out if user is loggedin 
+
+require: passport express-session mongoose
+app.use(session({session info here}))
+app.use(passport.initialize());
+app.use(passport.session());
 ## Requirements Check List
 -   Must use RectJS
     * Will add a user interaction portion of site

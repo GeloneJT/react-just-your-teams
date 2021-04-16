@@ -38,8 +38,15 @@ class CreateForm extends Component {
       // alert();
 
       API.saveUser(this.state)
-        .then((user) => {
-          alert(`Welcome ${this.state.username}`);
+        .then((req) => {
+          API.getUser(req.data).then((user) => {
+            console.log('INCOMING USER: ', user.data)
+            if (user) {
+              this.setState({ user: user.data });
+              alert(`Welcome ${user.data.username}`);
+            }
+          });
+          alert(`Logging ${this.state.username} in!`);
         })
         .catch((err) => console.log(err));
     }

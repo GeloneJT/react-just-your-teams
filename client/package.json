@@ -5,7 +5,6 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.18.0",
-
     "express": "^4.17.1",
     "foundation-sites": "^6.6.3",
     "html-to-react": "^1.4.5",

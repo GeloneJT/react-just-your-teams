@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 
-function Nav() {
+function Nav(props) {
 
     return (
       <nav className="top-bar topbar-responsive">
@@ -47,6 +47,7 @@ function Nav() {
                   <NavLink
                     to="/"
                     exact
+                    onClick={props.logout}
                   >
                     {" "}
                     Logout{" "}
