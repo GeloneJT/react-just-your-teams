@@ -3,6 +3,7 @@ const router = require("express").Router();
 const userRoutes = require("./user");
 const sportRoutes = require("./sport");
 const passport = require("../../passport");
+const signupRoutes = require("./signup");
 
 // user routes
 router.use("/user", userRoutes);
@@ -10,6 +11,7 @@ router.use("/user", userRoutes);
 // signup route
 router.use("/signup", signupRoutes);
 
+// login route
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("POST /api/login - req.user: ", req.user);
   const userInfo = {
@@ -26,10 +28,11 @@ router.get("/login", (req, res) => {
     console.log("req.user does not exist");
     res.send("Not logged in yet");
   } else {
-    return res.json(req.user.name);
+    return res.json(req.user.username);
   }
 });
 
+// logout route
 router.post("/logout", (req, res) => {
   if (req.user) {
     req.logout();
@@ -40,11 +43,7 @@ router.post("/logout", (req, res) => {
 });
 
 // sport Routes
-router.use("/sport", sportRoutes);
+// router.use("/sport", sportRoutes);
 
-// For anything else, render the html page
-router.use(function (req, res) {
-  res.sendFile(path.join(__dirname, "../../client/build/index.html"));
-});
 
 module.exports = router;

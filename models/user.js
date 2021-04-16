@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const Schema = mongoose.Schema;
 
 //creates model - id field is automatically added as _id property
-const userSchema = new Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -12,6 +12,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
     trim: true,
   },
   about_me: {
@@ -39,22 +40,31 @@ const userSchema = new Schema({
     required: true,
     trim: true,
     minLength: 6,
-    
   },
 });
 
 //uses bcrypt to hash the password
-userSchema.pre("save", async function (next) {
-  console.log("userSchema.pre: ", this);
-  const user = this;
+UserSchema.methods = {
+  checkPassword: function (inputPassword) {
+    return bcrypt.compareSync(inputPassword, this.password);
+  },
+  hashPassword: (plainTextPassword) => {
+    return bcrypt.hashSync(plainTextPassword, 10);
+  },
+};
 
-  if (user.isModified("password")) {
-    user.password = await bcrypt.hash(user.password, 8);
+UserSchema.pre("save", function (next) {
+  console.log("userSchema.pre('save'): ", this);
+  if (!this.password) {
+    console.log("no password!");
+    next();
+  } else {
+    console.log("pre saved");
+    this.password = this.hashPassword(this.password);
   }
-
   next();
 });
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
