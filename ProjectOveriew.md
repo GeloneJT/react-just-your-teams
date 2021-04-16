@@ -59,14 +59,17 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Continue work on passport
         * We are now at a stand still until able to login and out
     
-- Apr. 16th
+- Apr. 16th/17th/18th
     * Finish passport
     * Begin integrating chatroom
     * Fix createaccount link -> login may fix this?
     * Begin work on presentation
     * Style some more!
     * Need to breakdown team-search and have put route update AboutMe section in userpage
+    * Userpage needs to link to chat
+    * Userpage needs to pass props to AboutMe
     * Need to assign number value to team
+    * Connect User to Message model?
 
 ** FOR JAMES AND DAVE -> .config in chatmessage, app.css in chatmessage, socket.io(http) in server.js
 
