@@ -20,7 +20,7 @@ export default {
 
   logout: function (user) {
     console.log("api/logout/ POST:", user)
-    return axios.post("api/logout/", user);
+    return axios.post("/api/logout/", user);
   },
 
   getUsers: function (query) {

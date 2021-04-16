@@ -59,7 +59,7 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Continue work on passport
         * We are now at a stand still until able to login and out
     
-- Apr. 16th/17th/18th
+- Apr. 16th/17th
     * Finish passport
     * Begin integrating chatroom
     * Fix createaccount link -> login may fix this?
@@ -70,6 +70,16 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Userpage needs to pass props to AboutMe
     * Need to assign number value to team
     * Connect User to Message model?
+
+- Apr 18th
+    * Redirect on CreateAccount
+        * See LoginForm
+    * Toggle Logout Button
+    * Place localstorage variables in userpage
+    * Assign numbers to teams on signup for API search
+    * Style Style style!!!
+    * Put route for aboutme!
+    * Integrate ChatRoom
 
 ** FOR JAMES AND DAVE -> .config in chatmessage, app.css in chatmessage, socket.io(http) in server.js
 
