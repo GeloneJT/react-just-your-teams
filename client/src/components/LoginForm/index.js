@@ -23,25 +23,26 @@ class LoginForm extends Component {
     });
       this.handleLogin = (event) => {
         event.preventDefault();
-
-        console.dir("DATA FOR LOGIN: " + this.state);
         API.login(this.state)
           .then((req) => {
-            console.log("REQUESTED USER: ", req);
-            // this.setState({ user: req });
-            // console.log("STATE OF USER: " + this.state.user);
+            // console.log("REQUESTED USER: ", req);
             API.getUser(req.data)
             .then((user) => {
-              console.log('INCOMING USER: ', user.data)
-              this.setState({ user: user.data });
-              console.log("SET STATE OF USER: " +this.state.user);
-              alert(`User ${user.data.username} Loggedin!`);
+              // console.log('INCOMING USER: ', user.data)
+              if (user) {
+                this.setState({ user: user.data });
+                alert(`User ${user.data.username} Loggedin!`);
+              }
             });
           })
-          // .catch(
-          //   (err) => console.log(err),
-          //   alert("Inccorrect Email or Password")
-          // );
+          .catch(
+            (err) => {
+              console.log(err)
+              if (err) {
+                alert(`Incorrect Email and/or Password`);
+              }
+            }
+          );
       };
   };
 

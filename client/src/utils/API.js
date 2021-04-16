@@ -7,13 +7,20 @@ export default {
     // console.log('SCHEDULE QUERY: ', q)
     return axios.get("/api/sport", { params: { q: "competitor:" + q } });
   },
+  
   login: function (user) {
     console.log("api/login/: POST: ", user.email, user.password);
     return axios.post("/api/login/", user);
   },
+
   getUser: function (user) {
     console.log("api/login/: GET: ", user)
     return axios.get("/api/login/", user);
+  },
+
+  logout: function (user) {
+    console.log("api/logout/ POST:", user)
+    return axios.post("api/logout/", user);
   },
 
   getUsers: function (query) {
