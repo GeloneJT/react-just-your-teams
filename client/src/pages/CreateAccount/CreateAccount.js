@@ -12,7 +12,7 @@ class CreateAccount extends Component {
             <div className="grid-x grid-margin-x align-center" id="form-grid">
               <div className="cell medium-6">
 
-                <CreateForm match={this.props.match}>
+                <CreateForm match={this.props.match}/>
                 
               </div>
             </div>

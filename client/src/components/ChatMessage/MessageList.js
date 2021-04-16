@@ -1,13 +1,13 @@
 import React from 'react';
-import config from './config';
+import config from '../../config';
 import io from 'socket.io-client';
-
+//npm install socket.io-client @material-ui/core @material-ui/icons --save if this isn't working
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 
 //import BottomBar from './BottomBar';
-import './App.css';
+//import './App.css';
 
 class commentField extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ class commentField extends React.Component {
     this.state = {
       chat: [],
       content: '',
-      name: user, //name should be logged in user
-      team:usersteam, //their team
+      name: 'user', //name should be logged in user
+      team:'usersteam', //their team
     };
   }
 
