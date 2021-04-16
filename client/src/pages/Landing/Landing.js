@@ -13,11 +13,12 @@ class Landing extends React.Component {
   //   };
   // }
 
+
   //need to API.saveUser => to login or may need to write a new function
   //import API from "../../utils/API"
   
 
-  render() {
+ render() {
     return (
       <div className="Landing">
         <div className="showcase">
@@ -28,7 +29,6 @@ class Landing extends React.Component {
                 <source src={bg} type="video/mp4" />
               </video>
             </div>
-            <div className="toggle"></div>
           </div>
         </div>
       </div>

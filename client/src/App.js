@@ -4,6 +4,7 @@ import Landing from "./pages/Landing/Landing";
 import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import UserPage from "./pages/UserPage/UserPage"
 import Nav from "./components/Nav"
+import ChatPage from "./pages/ChatPage/chatpage.js"
 import Footer from "./components/Footer"
 
 
@@ -13,6 +14,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Nav />
+
           <Switch>
             <Route exact path = "/">
               <Landing />
@@ -20,10 +22,14 @@ class App extends React.Component {
             <Route exact path = "/createaccount">
               <CreateAccount />
             </Route>
-            <Router exact path = "/userpage/:id">
+            <Route exact path = "/userpage/:id">
               <UserPage />
-            </Router>
+            </Route>
+            <Route exact path = "/chatpage">
+              <ChatPage />
+            </Route>
           </Switch>
+
           <Footer />
         </div>
       </Router>
