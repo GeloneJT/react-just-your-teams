@@ -20,8 +20,12 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("POST /api/login - req.user: ", req.user);
   const userInfo = {
     id: req.user._id,
-    name: req.user.name,
+    username: req.user.username,
     email: req.user.email,
+    about_me: req.user.about_me,
+    sport: req.user.sport,
+    league: req.user.league,
+    team: req.user.team
   };
   res.json(userInfo);
 });
@@ -32,7 +36,7 @@ router.get("/login", (req, res) => {
     console.log("req.user does not exist");
     res.send("Not logged in yet");
   } else {
-    return res.json(req.user.username);
+    return res.json(req.user);
   }
 });
 

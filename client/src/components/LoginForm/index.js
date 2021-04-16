@@ -5,9 +5,13 @@ import "./style.css";
 import API from "../../utils/API";
 
 class LoginForm extends Component {
+
+
+
   state = {
     email: "",
     password: "",
+    user: null
   };
 
   handleInputChange = (event) => {
@@ -17,23 +21,28 @@ class LoginForm extends Component {
     this.setState({
       [name]: value,
     });
+      this.handleLogin = (event) => {
+        event.preventDefault();
 
-     console.log(this.state);
-  };
-
- 
-
-  loginUser = {
-    email: this.state.email,
-    password: this.state.password,
-  };
-  
-  login = (loginUser) => {
-    API.login(loginUser)
-      .then((res) => {
-        alert(`User ${res.data.username} Loggedin!`);
-      })
-      .catch((err) => console.log(err), alert("Inccorrect Email or Password"));
+        console.dir("DATA FOR LOGIN: " + this.state);
+        API.login(this.state)
+          .then((req) => {
+            console.log("REQUESTED USER: ", req);
+            // this.setState({ user: req });
+            // console.log("STATE OF USER: " + this.state.user);
+            API.getUser(req.data)
+            .then((user) => {
+              console.log('INCOMING USER: ', user.data)
+              this.setState({ user: user.data });
+              console.log("SET STATE OF USER: " +this.state.user);
+              alert(`User ${user.data.username} Loggedin!`);
+            });
+          })
+          // .catch(
+          //   (err) => console.log(err),
+          //   alert("Inccorrect Email or Password")
+          // );
+      };
   };
 
   render() {
@@ -64,7 +73,7 @@ class LoginForm extends Component {
         <p>
           <NavLink to="/userpage/:id">
             <input
-              onClick={this.login}
+              onClick={this.handleLogin}
               type="submit"
               className="button expanded"
               value="Log in"
