@@ -24,7 +24,30 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Begin working on login/logout
     * Start code for chat feature
     * Deploy to Heroku
-​
+        * All but Deploy to Heroku completed
+- Apr. 9th
+    * Need to understand routes better
+    * Login still not working
+    * API call on userPage working
+    * Still haven't deployed to heroku because of these issues
+        * Taking break over weekend to focus on HW completion
+            * None completed for many reasons:
+                * Routes are understood and completed but aren't being called in 2/3 pages where needed. Communication and reaching out for help must improve.
+                * userPage API call was undone due to our API updating and call had to be written.
+- Apr. 12th
+    * Get caught up​
+        * userPage API is completed 
+        * Login and Create user functions are done 
+        * Chatroom code has been pushed to main
+            * James has been solely working on this the whole time
+                * Almost completed -> routes need to be called in order for users to login and to create a new user
+
+- Apr. 13
+    * Reach MVP
+    * Deploy to Heroku
+    * Start styling
+    * Integrate chat room
+        * Dave and Mike will begin working on this with James
 ## Requirements Check List
 -   Must use RectJS
     * Will add a user interaction portion of site

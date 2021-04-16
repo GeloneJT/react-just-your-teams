@@ -5,8 +5,12 @@ const sportRoutes = require("./sport");
 const passport = require("../../passport");
 const signupRoutes = require("./signup");
 
+
 // user routes
 router.use("/user", userRoutes);
+
+// sport routes
+router.use("/sport", sportRoutes);
 
 // signup route
 router.use("/signup", signupRoutes);
@@ -42,8 +46,9 @@ router.post("/logout", (req, res) => {
   }
 });
 
-// sport Routes
-// router.use("/sport", sportRoutes);
+
+
+
 
 
 module.exports = router;
