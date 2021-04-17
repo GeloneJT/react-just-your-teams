@@ -1,6 +1,6 @@
 
 import React, {useState} from "react";
-import { Link, useLocation } from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
