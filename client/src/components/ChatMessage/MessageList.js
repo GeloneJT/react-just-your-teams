@@ -32,7 +32,7 @@ import Typography from '@material-ui/core/Typography';
            //GET request to appropriate db
       
            //filter by ones that have appropriate team
-         msgReversed.filter(word => word.team==this.state.team);
+         msgReversed.filter(word => word.team===this.state.team);
          this.setState((state) => ({
            chat: [...state.chat, ...msgReversed],
          }), this.scrollToBottom);

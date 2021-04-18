@@ -7,7 +7,10 @@ const MongoStore = require("connect-mongo");
 const Logger = require("morgan");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const io = require('socket.io')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const path = require('path');
+const Message = require('./models/Message');
 app.use(Logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -31,6 +34,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
   useCreateIndex: true,
   useFindAndModify: false,
 });
+app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
   io.on('connection', (socket) => {
     // Get the last 10 messages from the database.
     Message.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {
