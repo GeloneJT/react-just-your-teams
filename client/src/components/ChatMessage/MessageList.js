@@ -16,8 +16,8 @@ class commentField extends React.Component {
     this.state = {
       chat: [],
       content: '',
-      name: 'user', //name should be logged in user
-      team:'usersteam', //their team
+      name: props.name, //name should be logged in user
+      team:props.team, //their team
     };
   }
 
@@ -113,11 +113,16 @@ class commentField extends React.Component {
         
 
         <form onSubmit={this.handleSubmit}>
-            <InputBase
-              onChange={this.handleContent}
-              value={this.state.content}
-              placeholder="Type your message..."
-            />
+            <label>
+              Message
+              <input
+                value={this.state.content}
+                onChange={this.handleContent}
+                type="text"
+                name="message"
+                placeholder="Enter your message"
+              />
+            </label>
           </form>
       </div>
     );
