@@ -11,28 +11,24 @@ import { Grid, Cell } from "react-foundation";
 
 class UserPage extends Component {
 
-  
 
   state = {
-    matchData: [],
-    team: ""
+    userData: JSON.parse(localStorage.getItem("user")),
   };
 
+  //need get router to get user info
+  //need to style page
 
- 
-  
-//need get router to get user info
-//need to style page
-
-  componentDidMount() {
-    this.searchSchedule("48"); //search schedule needs to be equal to team value -> currently only hardcode working if hardcoded on backend
+  componentWillMount() {
+    console.log(this.state.userData);
+    this.searchSchedule(); //search schedule needs to be equal to team value -> currently only hardcode working if hardcoded on backend
   }
 
   searchSchedule = (query) => {
     API.schedule(query)
       .then((res) => {
         let summaries = res.data.summaries;
-        this.setState({ matchData: summaries })
+        this.setState({ matchData: summaries });
       })
       .catch((err) => console.log(err));
   };
