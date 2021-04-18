@@ -81,7 +81,11 @@ class LoginForm extends Component {
           {/* </NavLink> */}
         </p>
         <p className="text-center">
-          <NavLink to={`/createaccount`} exact>
+          <NavLink to={{
+            pathname: `/createaccount`,
+            loginProps:{
+              handleLogin: this.handleLogin
+            }}} exact>
             No account? Sign up today!
           </NavLink>
         </p>

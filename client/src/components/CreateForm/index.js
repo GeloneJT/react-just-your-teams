@@ -36,15 +36,28 @@ class CreateForm extends Component {
     } else if (this.state.password.length < 8) {
       alert(`Please choose a more secure password ${this.state.username}`);
     } else {
-      // alert();
 
       API.saveUser(this.state)
         .then((req) => {
           API.getUser(req.data).then((user) => {
-            console.log('INCOMING USER: ', user.data)
+            // console.log('INCOMING USER: ', user.data)
             if (user) {
               this.setState({ user: user.data });
-              alert(`Welcome ${user.data.username}`);
+              // console.log("setState USER: " + this.state.user)
+                    API.login(this.state).then((req) => {
+                      // console.log("REQUESTED USER: ", req);
+                      API.getUser(req.data).then((user) => {
+                        // console.log('INCOMING USER: ', user.data)
+                        if (user) {
+                          this.setState({ user: user.data, loggedIn: true });
+                          localStorage.setItem(
+                            "user",
+                            JSON.stringify(user.data)
+                          );
+                          alert(`User ${user.data.username} Loggedin Successfully!`);
+                        }
+                      });
+                    });
             }
           });
           alert(`Logging ${this.state.username} in!`);
