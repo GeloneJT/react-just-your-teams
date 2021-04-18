@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import API from "../../utils/API";
 
 
@@ -13,6 +13,7 @@ class CreateForm extends Component {
     sport: "soccer",
     league: "epl",
     team: "",
+    loggedIn: false
   };
 
   handleInputChange = (event) => {
@@ -53,6 +54,9 @@ class CreateForm extends Component {
   };
 
   render() {
+        if (this.state.loggedIn) {
+          return <Redirect to={`/userpage/${this.state.user._id}`} />;
+        }
     return (
       <form id="sign-up-form">
         <div className="form-icons">
