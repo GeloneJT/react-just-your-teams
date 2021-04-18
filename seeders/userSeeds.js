@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+let bcrypt = require("bcrypt");
 let db = require("../models");
 
 mongoose.connect("mongodb://localhost/jytDB", {

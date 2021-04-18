@@ -4,7 +4,6 @@ import io from 'socket.io-client';
 //npm install socket.io-client @material-ui/core @material-ui/icons --save if this isn't working
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
 
 //import BottomBar from './BottomBar';
 //import './App.css';

@@ -4,7 +4,19 @@ const userRoutes = require("./user");
 const sportRoutes = require("./sport");
 const passport = require("../../passport");
 const signupRoutes = require("./signup");
+const { ClientRequest } = require("http");
+const getUserInfo = (req)=>{
 
+  return !req.user ? {} : {
+    id: req.user._id,
+    username: req.user.username,
+    email: req.user.email,
+    about_me: req.user.about_me,
+    sport: req.user.sport,
+    league: req.user.league,
+    team: req.user.team
+  }
+}
 
 // user routes
 router.use("/user", userRoutes);
@@ -15,15 +27,11 @@ router.use("/sport", sportRoutes);
 // signup route
 router.use("/signup", signupRoutes);
 
+
 // login route
 router.post("/login", passport.authenticate("local"), (req, res) => {
   console.log("POST /api/login - req.user: ", req.user);
-  const userInfo = {
-    id: req.user._id,
-    name: req.user.name,
-    email: req.user.email,
-  };
-  res.json(userInfo);
+  res.json(getUserInfo(ClientRequest));
 });
 
 router.get("/login", (req, res) => {
@@ -32,7 +40,7 @@ router.get("/login", (req, res) => {
     console.log("req.user does not exist");
     res.send("Not logged in yet");
   } else {
-    return res.json(req.user.username);
+    return res.json(getUserInfo(req));
   }
 });
 

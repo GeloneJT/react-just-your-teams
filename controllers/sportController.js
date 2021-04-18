@@ -9,12 +9,12 @@ const APIKEY = process.env.API_KEY;
 
 module.exports = {
   getSummarries: function ( req, res) {
-    console.log("REQ.QUERY: ", req.query);
+    // console.log("REQ.QUERY: ", req.query);
     const { query: params } = req;
     const team = params.q;
-    console.log("PARAMS.Q: ", params.q);
+    // console.log("PARAMS.Q: ", params.q);
     const url = `${BASE}${team}${SUMMARY}${APIKEY}`;
-    console.log("URL: ", url);
+    // console.log("URL: ", url);
     axios
       .get(
         url

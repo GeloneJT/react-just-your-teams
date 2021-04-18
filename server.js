@@ -4,7 +4,6 @@ const routes = require("./routes");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-
 const Logger = require("morgan");
 
 const app = express();
@@ -13,10 +12,15 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 const PORT = process.env.PORT || 3001;
+
 const app = express();
+const io = require('socket.io')();
 
 
-app.use(logger("dev"));
+
+
+
+app.use(Logger("dev"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
