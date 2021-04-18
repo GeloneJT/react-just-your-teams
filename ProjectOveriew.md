@@ -72,8 +72,8 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
     * Connect User to Message model?
 
 - Apr 18th
-    * Redirect on CreateAccount
-        * See LoginForm
+    * Redirect on CreateAccount ***DONE***
+        * See LoginForm ***DONE***
     * Toggle Logout Button
     * Place localstorage variables in userpage
     * Assign numbers to teams on signup for API search

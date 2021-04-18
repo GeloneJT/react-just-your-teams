@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import API from "../../utils/API";
 
 
@@ -10,9 +10,11 @@ class CreateForm extends Component {
     email: "",
     username: "",
     password: "",
+    about_me: "Edit your About Me by using 'Update Profile' Above.",
     sport: "soccer",
     league: "epl",
     team: "",
+    loggedIn: false
   };
 
   handleInputChange = (event) => {
@@ -35,15 +37,28 @@ class CreateForm extends Component {
     } else if (this.state.password.length < 8) {
       alert(`Please choose a more secure password ${this.state.username}`);
     } else {
-      // alert();
 
       API.saveUser(this.state)
         .then((req) => {
           API.getUser(req.data).then((user) => {
-            console.log('INCOMING USER: ', user.data)
+            // console.log('INCOMING USER: ', user.data)
             if (user) {
               this.setState({ user: user.data });
-              alert(`Welcome ${user.data.username}`);
+              // console.log("setState USER: " + this.state.user)
+                    API.login(this.state).then((req) => {
+                      // console.log("REQUESTED USER: ", req);
+                      API.getUser(req.data).then((user) => {
+                        // console.log('INCOMING USER: ', user.data)
+                        if (user) {
+                          this.setState({ user: user.data, loggedIn: true });
+                          localStorage.setItem(
+                            "user",
+                            JSON.stringify(user.data)
+                          );
+                          alert(`User ${user.data.username} Loggedin Successfully!`);
+                        }
+                      });
+                    });
             }
           });
           alert(`Logging ${this.state.username} in!`);
@@ -53,6 +68,9 @@ class CreateForm extends Component {
   };
 
   render() {
+        if (this.state.loggedIn) {
+          return <Redirect to={`/userpage/${this.state.user._id}`} />;
+        }
     return (
       <form id="sign-up-form">
         <div className="form-icons">

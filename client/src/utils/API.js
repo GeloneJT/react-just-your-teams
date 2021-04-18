@@ -4,12 +4,12 @@ import axios from "axios";
 
 export default {
   schedule: function (q) {
-    // console.log('SCHEDULE QUERY: ', q)
+    console.log('SCHEDULE QUERY: ', q)
     return axios.get("/api/sport", { params: { q: "competitor:" + q } });
   },
   
   login: function (user) {
-    console.log("api/login/: POST: ", user.email, user.password);
+    console.log("api/login/: POST: ", user.email);
     return axios.post("/api/login/", user);
   },
 

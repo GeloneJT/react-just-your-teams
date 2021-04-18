@@ -16,7 +16,7 @@ class App extends React.Component {
     console.log("LOGGING OUT");
       API.logout()
       .then(() => {
-        localStorage.clear()
+        // localStorage.clear()
         alert(`Logged Out!`)
       });
   }
