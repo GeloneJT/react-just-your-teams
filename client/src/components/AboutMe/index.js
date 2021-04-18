@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function AboutMe() {
+function AboutMe(props) {
   return (
     <div>
       <div className="cell medium-auto">
@@ -10,16 +10,14 @@ function AboutMe() {
             <div className="profile-card-header">
               <div className="profile-card-author">
                 <h5 className="author-title" id="username">
-                  Username
+                  {props.username}
                 </h5>
               </div>
             </div>
             <div className="profile-card-about">
               <h5 className="about-title separator-left">About Me</h5>
               <p id="about_me" className="about-content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                autem eveniet nulla quae ullam sit iure voluptatum, nesciunt
-                voluptas perferendis, minus natus in quaerat?
+                {props.aboutme}
               </p>
             </div>
           </div>

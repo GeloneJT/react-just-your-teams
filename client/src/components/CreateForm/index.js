@@ -10,6 +10,7 @@ class CreateForm extends Component {
     email: "",
     username: "",
     password: "",
+    about_me: "Edit your About Me by using 'Update Profile' Above.",
     sport: "soccer",
     league: "epl",
     team: "",
