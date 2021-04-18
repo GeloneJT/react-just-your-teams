@@ -4,7 +4,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
-class LoginForm extends Component {
+class LoginForm extends React.Component {
   state = {
     email: "",
     password: "",

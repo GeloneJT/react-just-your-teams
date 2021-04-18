@@ -1,25 +1,25 @@
-// import React from 'react';
-// import config from './config';
-// import io from 'socket.io-client';
+import React from 'react';
+import config from '../../config';
+import io from 'socket.io-client';
+//npm install socket.io-client @material-ui/core @material-ui/icons --save if this isn't working
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
-// import Paper from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography';
-// import InputBase from '@material-ui/core/InputBase';
-
-// //import BottomBar from './BottomBar';
-// import './App.css';
+//import BottomBar from './BottomBar';
+//import './App.css';
 
 // class commentField extends React.Component {
 //   constructor(props) {
 //     super(props);
 
-//     this.state = {
-//       chat: [],
-//       content: '',
-//       // name: user, //name should be logged in user
-//       // team:usersteam, //their team
-//     };
-//   }
+    this.state = {
+      chat: [],
+      content: '',
+      name: props.name, //name should be logged in user
+      team:props.team, //their team
+    };
+  }
+
 
 //   componentDidMount() {
 //     this.socket = io(config[process.env.NODE_ENV].endpoint);
@@ -112,26 +112,22 @@
 //         </Paper>
         
 
-//         <form onSubmit={this.handleSubmit}>
-//             <InputBase
-//               onChange={this.handleContent}
-//               value={this.state.content}
-//               placeholder="Type your message..."
-//             />
-//           </form>
-//       </div>
-//     );
-//   }
-// };
 
-// export default commentField;
+        <form onSubmit={this.handleSubmit}>
+            <label>
+              Message
+              <input
+                value={this.state.content}
+                onChange={this.handleContent}
+                type="text"
+                name="message"
+                placeholder="Enter your message"
+              />
+            </label>
+          </form>
+      </div>
+    );
+  }
+};
 
-// /*
-// <BottomBar
-//           content={this.state.content}
-//           handleContent={this.handleContent.bind(this)}
-//           handleName={this.handleName.bind(this)}
-//           handleSubmit={this.handleSubmit.bind(this)}
-//           name={this.state.name}
-//         />
-// */
+export default commentField;
