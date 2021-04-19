@@ -34,7 +34,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
   useCreateIndex: true,
   useFindAndModify: false,
 });
-app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
+//app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
   io.on('connection', (socket) => {
     // Get the last 10 messages from the database.
     Message.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {

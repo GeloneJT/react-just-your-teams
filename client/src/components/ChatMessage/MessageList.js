@@ -9,23 +9,23 @@ import Typography from '@material-ui/core/Typography';
  // import './App.css';
 
  class commentField extends React.Component {
-  constructor(props) {
-     super(props);
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      chat: [],
-      content: '',
-      name: props.name,  // name should be logged in user
-      team:props.team,  // their team
-    };
-  }
+      this.state = {
+        chat: [],
+        content: '',
+        name: props.name,  // name should be logged in user
+        team:props.team,  // their team
+      };
+    }
 
 
      componentDidMount() {
        this.socket = io(config[process.env.NODE_ENV].endpoint);
 
           //Load the last 10 messages in the window.
-    
+        console.log("line 28")
        this.socket.on('init', (msg) => {
          let msgReversed = msg.reverse();
            //get appropriate team
@@ -50,18 +50,13 @@ import Typography from '@material-ui/core/Typography';
 
         //Save the message the user is typing in the input field.
      handleContent(event) {
+       
        this.setState({
          content: event.target.value,
        });
      }
 
-        //not from input, get from API
-    /* handleName(event) {
-       this.setState({
-         name: event.target.value,
-         team: event.target.value,
-       });
-     }*/
+    
 
      handleSubmit(event) {
          // Prevent the form to reload the current page.
@@ -87,11 +82,7 @@ import Typography from '@material-ui/core/Typography';
        }, this.scrollToBottom);
      }
 
-      //  Always make sure the window is scrolled down to the last message.
-     /*scrollToBottom() {
-       const chat = document.getElementById('chat');
-       chat.scrollTop = chat.scrollHeight;
-     }*/
+     
 
      render() {
        return (
