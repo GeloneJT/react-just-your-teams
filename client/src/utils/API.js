@@ -1,7 +1,5 @@
 import axios from "axios";
 
-//need to build a backend route schedule needs to return axios.get("api/user/:id");
-
 export default {
   schedule: function (q) {
     console.log('SCHEDULE QUERY: ', q)

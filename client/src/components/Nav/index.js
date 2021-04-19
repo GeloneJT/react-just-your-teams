@@ -11,7 +11,6 @@ function Nav() {
       event.preventDefault();
       console.log("LOGGING OUT");
       API.logout().then(() => {
-        // localStorage.clear()
         setLogout(true);
         })
     };
