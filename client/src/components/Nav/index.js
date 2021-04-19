@@ -58,6 +58,21 @@ function Nav() {
               </li>
               <li>
                 <button
+                  id="chatpage"
+                  type="button"
+                  className="button hollow topbar-responsive-button"
+                >
+                  <NavLink
+                    to="chatpage"
+                    exact
+                    
+                  >
+                    Chat
+                  </NavLink>
+                </button>
+              </li>
+              <li>
+                <button
                   id="logout-link"
                   type="button"
                   className="button hollow topbar-responsive-button"
