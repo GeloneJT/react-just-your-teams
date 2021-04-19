@@ -13,13 +13,19 @@ import Typography from '@material-ui/core/Typography';
  class commentField extends React.Component {
     constructor(props) {
       super(props);
-
+      var user = JSON.parse(localStorage.getItem("user"));
       this.state = {
         chat: [],
         content: '',
-        name: props.name,  // name should be logged in user
-        team:props.team,  // their team
+        name:user.username,  // name should be logged in user
+        team:user["team"],  // their team
       };
+      console.log("name is "+this.state.name);
+      console.log("team is "+this.state.team);
+
+      this.handleContent = this.handleContent.bind(this);
+
+      this.handleSubmit = this.handleSubmit.bind(this);
     }
 
   componentDidMount() {
@@ -102,6 +108,7 @@ import Typography from '@material-ui/core/Typography';
          team:this.state.team,
        });
 
+       console.log("emitting with "+this.state.name+" "+this.state.content+" "+this.state.team)
        this.setState((state) => {
            // Update the chat with the user's message and remove the current message.
          return {
