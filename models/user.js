@@ -1,75 +1,71 @@
-const { Model, DataTypes } = require("sequelize");
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-const sequelize = require("../config/connection");
+const Schema = mongoose.Schema;
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
-
-User.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
-    about_me: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: false,
-    },
-    sport: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    league: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    team: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
-    },
+//creates model - id field is automatically added as _id property
+const UserSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    trim: true,
   },
-  {
-     hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
-      }
-     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    unique: true,
+  },
+  about_me: {
+    type: String,
+    trim: true,
+    trim: true,
+  },
+  sport: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  league: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  team: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+    minLength: 6,
+  },
+});
+
+//uses bcrypt to hash the password
+UserSchema.methods = {
+  checkPassword: function (inputPassword) {
+    return bcrypt.compareSync(inputPassword, this.password);
+  },
+  hashPassword: (plainTextPassword) => {
+    return bcrypt.hashSync(plainTextPassword, 10);
+  },
+};
+
+UserSchema.pre("save", function (next) {
+  console.log("userSchema.pre('save'): ", this);
+  if (!this.password) {
+    console.log("no password!");
+    next();
+  } else {
+    console.log("pre saved");
+    this.password = this.hashPassword(this.password);
   }
-);
+  next();
+});
+
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
