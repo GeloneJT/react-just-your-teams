@@ -11,6 +11,7 @@ const http = require('http').createServer(app);
 const cors = require('cors'); 
 
 const io = require('socket.io')(http);
+
 const path = require('path');
 const Message = require('./models/Message');
 
@@ -39,6 +40,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
 });
 //app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
 console.log("server line 48" )
+
   io.on('connection', (socket) => {
     console.log("io connection")
     // Get the last 10 messages from the database.
@@ -65,6 +67,7 @@ console.log("server line 48" )
       // Notify all other users about a new message.
       //socket.broadcast.emit('push', msg);
     });
+
   });
 
 //app.use(cors);  
