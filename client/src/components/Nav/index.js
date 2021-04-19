@@ -48,7 +48,7 @@ function Nav() {
                   className="button hollow topbar-responsive-button"
                 >
                   <NavLink
-                    to="teamsearch"
+                    to="/updateprofile"
                     exact
                     
                   >

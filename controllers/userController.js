@@ -21,8 +21,15 @@ module.exports = {
   },
   update: function (req, res) {
     console.log("PUT: UPDATE");
-    db.User.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then((dbModel) => res.json(dbModel))
+    db.User.findOneAndUpdate({ email: req.params.email }, req.body)
+    console.log("REQ.BODY: ", req.body)
+      .then((dbModel) => {
+        if(dbModel) {
+          console.log(`UPDATED ${dbModel}`)
+        } else {
+          console.log(`Did not Update.`);
+        }
+      res.json(dbModel)})
       .catch((err) => res.status(422).json(err));
   },
 };
