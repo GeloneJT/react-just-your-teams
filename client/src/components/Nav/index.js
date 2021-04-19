@@ -1,8 +1,26 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState} from "react";
+import { NavLink, Redirect } from "react-router-dom";
+import API from "../../utils/API";
 import "./style.css";
 
-function Nav(props) {
+function Nav() {
+
+    const [logout, setLogout] = useState(false);
+
+  const handleLogout = (event) => {
+      event.preventDefault();
+      console.log("LOGGING OUT");
+      API.logout().then(() => {
+        setLogout(true);
+        })
+    };
+
+    if (logout) {
+          alert(`Logged Out!`);
+          return (
+          <Redirect to="/" />
+          );
+    }
 
     return (
       <nav className="top-bar topbar-responsive">
@@ -62,7 +80,7 @@ function Nav(props) {
                   <NavLink
                     to="/"
                     exact
-                    onClick={props.logout}
+                    onClick={handleLogout}
                   >
                     {" "}
                     Logout{" "}

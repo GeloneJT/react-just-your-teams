@@ -11,6 +11,7 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const path = require('path');
 const Message = require('./models/Message');
+
 app.use(Logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -34,15 +35,16 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
 app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
   io.on('connection', (socket) => {
     // Get the last 10 messages from the database.
     Message.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {
       if (err) return console.error(err);
       // Send the last messages to the user.
-      socket.emit('init', messages);
+      socket.emit("init", messages);
     });
-  
+
     // Listen to connected users for a new message.
     socket.on('message', (msg) => {
       // Create a message with the content and the name of the user.
@@ -60,6 +62,7 @@ app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
       //socket.broadcast.emit('push', msg);
     });
   });
+
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

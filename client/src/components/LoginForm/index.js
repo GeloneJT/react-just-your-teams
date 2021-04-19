@@ -4,7 +4,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import "./style.css";
 import API from "../../utils/API";
 
-class LoginForm extends React.Component {
+class LoginForm extends Component {
   state = {
     email: "",
     password: "",
@@ -44,7 +44,7 @@ class LoginForm extends React.Component {
 
   render() {
     if(this.state.loggedIn){
-      return (<Redirect to={`/userpage/${this.state.user._id}`}/>)
+      return (<Redirect to={`/userpage`}/>)
     }
     return (
       <form className="log-in-form" method="POST">
