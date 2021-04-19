@@ -34,4 +34,9 @@ export default {
     console.log(userData);
     return axios.post("/api/user", userData);
   },
+
+  updateProfile: function (userData) {
+    console.log(`api/user ${userData}`);
+    return axios.put("/api/user", userData);
+  }
 };

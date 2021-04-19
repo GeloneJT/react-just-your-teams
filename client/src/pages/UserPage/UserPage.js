@@ -64,13 +64,13 @@ class UserPage extends Component {
         <div className="grid-container">
           <div className="grid-container">
             <Grid>
-              <Cell small={12} large={3}>
-                <AboutMe aboutme={this.state.userData.about_me} username={this.state.userData.username} />
+              <Cell small={12} large={2}>
+                <AboutMe aboutme={this.state.userData.team} username={this.state.userData.username} />
               </Cell>
-              <Cell small={12}>
+              <Cell small={12} large={5} >
                 <Schedule matches={this.state.matchData} />
               </Cell>
-              <Cell small={12}>
+              <Cell small={12} large={5}>
                 <Results matches={this.state.matchData} />
               </Cell>
             </Grid>

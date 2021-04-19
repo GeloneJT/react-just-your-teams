@@ -74,9 +74,9 @@ By expanding on our last project, Just Your Teams, we will ad an interface that 
 - Apr 18th
     * Redirect on CreateAccount ***DONE***
         * See LoginForm ***DONE***
-    * Toggle Logout Button
-    * Place localstorage variables in userpage
-    * Assign numbers to teams on signup for API search
+    * Toggle Logout Button **Done**
+    * Place localstorage variables in userpage **Done**
+    * Assign numbers to teams on signup for API search **Done**
     * Style Style style!!!
     * Put route for aboutme!
     * Integrate ChatRoom

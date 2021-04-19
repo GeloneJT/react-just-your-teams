@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Landing from "./pages/Landing/Landing";
 import CreateAccount from "./pages/CreateAccount/CreateAccount";
 import UserPage from "./pages/UserPage/UserPage";
+import UpdateProfile from "./pages/UpdateProfile/UpdateProfile"
 import Nav from "./components/Nav";
 import ChatPage from "./pages/ChatPage/chatpage.js";
 import Footer from "./components/Footer";
@@ -25,6 +26,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/userpage">
               <UserPage />
+            </Route>
+            <Route exact path="/updateprofile">
+              <UpdateProfile />
             </Route>
             <Route exact path="/chatpage">
               <ChatPage />

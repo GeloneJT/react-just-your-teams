@@ -15,7 +15,7 @@ function AboutMe(props) {
               </div>
             </div>
             <div className="profile-card-about">
-              <h5 className="about-title separator-left">About Me</h5>
+              <h5 className="about-title separator-left">Your Team:</h5>
               <p id="about_me" className="about-content">
                 {props.aboutme}
               </p>

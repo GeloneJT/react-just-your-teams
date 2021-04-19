@@ -1,11 +1,12 @@
+import React from "react";
+import config from "../../config";
+import io from "socket.io-client";
+//npm install socket.io-client @material-ui/core @material-ui/icons --save if this isn't working
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
-import React from 'react';
-import config from '../../config';
-import io from 'socket.io-client';
- // npm install socket.io-client @material-ui/core @material-ui/icons --save if this isn't working
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-
+//import BottomBar from './BottomBar';
+//import './App.css';
 
  // import BottomBar from './BottomBar';
  // import './App.css';
@@ -22,7 +23,6 @@ import Typography from '@material-ui/core/Typography';
       };
       console.log("name is "+this.state.name);
       console.log("team is "+this.state.team);
-
       this.handleContent = this.handleContent.bind(this);
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -117,6 +117,7 @@ import Typography from '@material-ui/core/Typography';
                );
              })}
            </Paper>
+
 
         <form onSubmit={this.handleSubmit}>
           <label>
