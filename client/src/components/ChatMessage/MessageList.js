@@ -30,13 +30,7 @@ import Typography from '@material-ui/core/Typography';
 
      componentDidMount() {
        console.log("mounting "+process.env.NODE_ENV+" "+config[process.env.NODE_ENV].endpoint)
-       this.socket = io(config[process.env.NODE_ENV].endpoint,{
-        withCredentials: true,
-        extraHeaders: {
-          //"my-custom-header": "abcd"
-          "Access-Control-Allow-Origin": "localhost:3000",
-        }
-      } );
+       this.socket = io(config[process.env.NODE_ENV].endpoint);
       
 
           //Load the last 10 messages in the window.
@@ -52,9 +46,13 @@ import Typography from '@material-ui/core/Typography';
          msgReversed.filter(word => word.team===this.state.team);
          this.setState((state) => ({
            chat: [...state.chat, ...msgReversed],
-         }), this.scrollToBottom);
+         }));
 
        });
+       this.socket.on("connect_error", (err) => {
+        console.log(`connect_error due to ${err.message}`);
+        console.log(this.socket);
+      });
        console.log("line 57")
          // Update the chat if a new message is broadcasted.
        this.socket.on('push', (msg) => {

@@ -8,16 +8,9 @@ const Logger = require("morgan");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const http = require('http').createServer(app);
-var cors = require('cors'); 
-var origin= "localhost:"+PORT ;   
-const io = require('socket.io')(http, {
-  cors: {
-    origin:origin,
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Access-Control-Allow-Origin"],
-    credentials: true
-  }
-});
+const cors = require('cors'); 
+
+const io = require('socket.io')(http);
 const path = require('path');
 const Message = require('./models/Message');
 
@@ -74,6 +67,7 @@ console.log("server line 48" )
     });
   });
 
+//app.use(cors);  
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
