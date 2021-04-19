@@ -28,56 +28,34 @@ import Typography from '@material-ui/core/Typography';
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-  componentDidMount() {
-    this.socket = io(config[process.env.NODE_ENV].endpoint);
-
-    // Load the last 10 messages in the window.
-
-    this.socket.on("init", (msg) => {
-      let msgReversed = msg.reverse();
-      //TODO get appropriate team
-      //GET request to appropriate db
-
-      //filter by ones that have appropriate team
-      msgReversed.filter((word) => word.team == this.state.team);
-      this.setState(
-        (state) => ({
-          chat: [...state.chat, ...msgReversed],
-        }),
-        this.scrollToBottom
-      );
-    });
-
-    // Update the chat if a new message is broadcasted.
-    this.socket.on("push", (msg) => {
-      //check if msg has appropriate team
-      this.setState(
-        (state) => ({
-          chat: [...state.chat, msg],
-        }),
-        this.scrollToBottom
-      );
-    });
-  }
-
      componentDidMount() {
-       this.socket = io(config[process.env.NODE_ENV].endpoint);
+       console.log("mounting "+process.env.NODE_ENV+" "+config[process.env.NODE_ENV].endpoint)
+       this.socket = io(config[process.env.NODE_ENV].endpoint,{
+        withCredentials: true,
+        extraHeaders: {
+          //"my-custom-header": "abcd"
+          "Access-Control-Allow-Origin": "localhost:3000",
+        }
+      } );
+      
 
           //Load the last 10 messages in the window.
-        console.log("line 28")
+        console.log("line 40")
        this.socket.on('init', (msg) => {
+         console.log("44");
          let msgReversed = msg.reverse();
            //get appropriate team
            //GET request to appropriate db
       
            //filter by ones that have appropriate team
+          console.log(msgReversed);
          msgReversed.filter(word => word.team===this.state.team);
          this.setState((state) => ({
            chat: [...state.chat, ...msgReversed],
          }), this.scrollToBottom);
 
        });
-
+       console.log("line 57")
          // Update the chat if a new message is broadcasted.
        this.socket.on('push', (msg) => {
           // check if msg has appropriate team

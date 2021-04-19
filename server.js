@@ -7,8 +7,17 @@ const MongoStore = require("connect-mongo");
 const Logger = require("morgan");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const http = require('http').createServer(app);
+var cors = require('cors'); 
+var origin= "localhost:"+PORT ;   
+const io = require('socket.io')(http, {
+  cors: {
+    origin:origin,
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Access-Control-Allow-Origin"],
+    credentials: true
+  }
+});
 const path = require('path');
 const Message = require('./models/Message');
 
@@ -36,7 +45,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
   useFindAndModify: false,
 });
 //app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
+console.log("server line 48" )
   io.on('connection', (socket) => {
+    console.log("io connection")
     // Get the last 10 messages from the database.
     Message.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {
       if (err) return console.error(err);
@@ -47,6 +58,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
     // Listen to connected users for a new message.
     socket.on('message', (msg) => {
       // Create a message with the content and the name of the user.
+      console.log("received message")
       const message = new Message({
         content: msg.content,
         name: msg.name,
