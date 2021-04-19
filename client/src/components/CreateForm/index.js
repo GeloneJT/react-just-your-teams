@@ -69,7 +69,7 @@ class CreateForm extends Component {
 
   render() {
         if (this.state.loggedIn) {
-          return <Redirect to={`/userpage/${this.state.user._id}`} />;
+          return <Redirect to={`/userpage/`} />;
         }
     return (
       <form id="sign-up-form">
