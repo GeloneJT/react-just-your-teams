@@ -5,30 +5,18 @@ const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const Logger = require("morgan");
-
+const PORT = process.env.PORT || 3001;
 const app = express();
-
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
-const PORT = process.env.PORT || 3001;
-
-const app = express();
-const io = require('socket.io')();
-
-
-
-
-
+const path = require('path');
+const Message = require('./models/Message');
 app.use(Logger("dev"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 app.use(
   session({
     secret: "super secret",
@@ -37,28 +25,20 @@ app.use(
     saveUninitialized: false,
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(routes);
-
-
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
 });
-
-
-
+app.use(express.static(path.join(__dirname, '.', 'client', 'build')));
   io.on('connection', (socket) => {
-
     // Get the last 10 messages from the database.
     Message.find().sort({createdAt: -1}).limit(10).exec((err, messages) => {
       if (err) return console.error(err);
-  
       // Send the last messages to the user.
       socket.emit('init', messages);
     });
@@ -76,12 +56,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/jytDB", {
       message.save((err) => {
         if (err) return console.error(err);
       });
-  
       // Notify all other users about a new message.
       //socket.broadcast.emit('push', msg);
     });
   });
-
 app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
